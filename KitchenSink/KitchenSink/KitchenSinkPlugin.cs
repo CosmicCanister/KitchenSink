@@ -63,6 +63,8 @@ namespace KitchenSink
             server = new Handlers.Server();
             Player.Left += player.OnPlayerLeave;
             Player.Joined += player.OnPlayCon;
+            Server.RoundEnded += server.GameEnd;
+            Server.RoundStarted += server.GameStart;
             /*
                         Player.Left += player.OnPlayerLeave;
                         Player.Joined += player.OnPlayCon;
@@ -89,6 +91,8 @@ namespace KitchenSink
             server = new Handlers.Server();
             Player.Left -= player.OnPlayerLeave;
             Player.Joined -= player.OnPlayCon;
+            Server.RoundEnded -= server.GameEnd;
+            Server.RoundStarted -= server.GameStart;
             /*
              *             Player.UsedItem -= player.OnPlayerUse;
             Player.Left -= player.OnPlayerLeave;

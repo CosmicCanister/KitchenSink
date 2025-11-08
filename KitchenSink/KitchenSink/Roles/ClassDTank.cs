@@ -41,7 +41,7 @@ namespace KitchenSink.Roles
         {
             $"{ItemType.Adrenaline}",
             $"{ItemType.ArmorLight}",
-            $"{ItemType.KeycardFacilityManager}",
+            $"{ItemType.KeycardZoneManager}",
             $"{ItemType.GrenadeFlash}",
         };
 

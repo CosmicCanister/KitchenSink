@@ -28,7 +28,22 @@ namespace KitchenSink.Items
         public override float Weight { get; set; } = 1.5f;
         public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
         {
-            Limit = 2
+            Limit = 2,
+
+           DynamicSpawnPoints = new List<DynamicSpawnPoint>
+           {
+            new DynamicSpawnPoint()
+            {
+                Chance = 25,
+                Location = SpawnLocationType.Inside939Cryo,
+            },
+            new DynamicSpawnPoint()
+            {
+                Chance = 25,
+                Location = SpawnLocationType.InsideHczArmory,
+            },
+
+           },
 
         };
 

@@ -1,4 +1,5 @@
-﻿using Exiled.API.Features.Items;
+﻿using Exiled.API.Features;
+using Exiled.Events.EventArgs.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,20 @@ namespace KitchenSink.Handlers
     internal class Server
     {
 
-            
 
 
+        public void GameEnd(RoundEndedEventArgs ev)
+        {
+            Exiled.API.Features.Server.FriendlyFire = true;
+
+
+        }
+        public void GameStart()
+        {
+            Exiled.API.Features.Server.FriendlyFire = false;
+
+
+        }
 
 
     }

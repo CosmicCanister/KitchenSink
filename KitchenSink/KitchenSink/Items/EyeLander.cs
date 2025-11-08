@@ -27,11 +27,25 @@ namespace KitchenSink.Items
         public override SpawnProperties SpawnProperties { get; set; } =
         new SpawnProperties()
         {
-            Limit = 1
-            
+            Limit = 1,
+           DynamicSpawnPoints = new List<DynamicSpawnPoint>
+           {
+            new DynamicSpawnPoint()
+            {
+                Chance = 100,
+                Location = SpawnLocationType.InsideHidLab,
+            },
+            new DynamicSpawnPoint()
+            {
+                Chance = 100,
+                Location = SpawnLocationType.InsideLczArmory,
+            },
+
+           },
+
 
         };
-
+        
 
         protected override void SubscribeEvents()
         {
