@@ -69,7 +69,19 @@ namespace KitchenSink.Items
         {
             if (!Check(ev.Player.CurrentItem))
                 return;
-            if (ev.Door == DoorType.NukeSurface)
+            if (ev.Door.Type == DoorType.NukeSurface)
+            {
+                ev.Door.IsOpen = true;
+                ev.Door.Unlock();
+                Log.Info("Nuke Opened");
+            }
+            if (ev.Door.Type == DoorType.ElevatorNuke)
+            {
+                ev.Door.IsOpen = true;
+                ev.Door.Unlock();
+                Log.Info("Nuke Opened");
+            }
+            if (ev.Door.DoorLockType == DoorLockType.Warhead)
             {
                 ev.Door.IsOpen = true;
                 ev.Door.Unlock();
@@ -78,5 +90,6 @@ namespace KitchenSink.Items
 
 
         }
+
     }
 }
