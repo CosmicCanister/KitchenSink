@@ -10,6 +10,7 @@ using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MEC;
 using UnityEngine;
+using Exiled.API.Features;
 
 namespace KitchenSink.Items
 {
@@ -72,6 +73,8 @@ namespace KitchenSink.Items
             if (ev.Door.DoorLockType == DoorLockType.Warhead)
             {
                 ev.Door.IsOpen = true;
+                ev.Door.Unlock();
+                Log.Info("Nuke Opened");
             }
 
 
