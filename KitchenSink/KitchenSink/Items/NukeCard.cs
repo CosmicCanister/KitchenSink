@@ -61,7 +61,6 @@ namespace KitchenSink.Items
         {
 
             Exiled.Events.Handlers.Player.InteractingDoor -= OnUsingItem;
-
             base.UnsubscribeEvents();
         }
 
@@ -70,7 +69,7 @@ namespace KitchenSink.Items
         {
             if (!Check(ev.Player.CurrentItem))
                 return;
-            if (ev.Door.DoorLockType == DoorLockType.Warhead)
+            if (ev.Door == DoorType.NukeSurface)
             {
                 ev.Door.IsOpen = true;
                 ev.Door.Unlock();
