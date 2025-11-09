@@ -81,12 +81,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities\Charge.cs" />
+    <Compile Include="Abilities\Scout.cs" />
+    <Compile Include="Items\Life Spender.cs" />
+    <Compile Include="Roles\ScoutClassD.cs" />
     <Compile Include="SSS.cs" />
     <Compile Include="Commands\AdminCom.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Handlers\Player.cs" />
     <Compile Include="Handlers\Server.cs" />
-    <Compile Include="Items\BombOnAStick.cs" />
     <Compile Include="Items\SCP500_8.cs" />
     <Compile Include="Items\NukeCard.cs" />
     <Compile Include="Items\EyeLander.cs" />

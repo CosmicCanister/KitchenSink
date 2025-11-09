@@ -20,7 +20,7 @@ namespace KitchenSink
         public void Activate()
         {
 
-
+            
             // Define a keybind
             actionKey = new SSKeybindSetting(
                 null,
