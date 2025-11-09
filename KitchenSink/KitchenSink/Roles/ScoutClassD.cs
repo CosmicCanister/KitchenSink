@@ -35,19 +35,21 @@ namespace KitchenSink.Roles
         public override uint Id { get; set; } = 66;
         public override int MaxHealth { get; set; } = 90;
         public override string Name { get; set; } = "Scout Guard";
-        public override string Description { get; set; } = "Recon focused Guard, you are faster when wearing light armor";
+        public override string Description { get; set; } = "Recon focused Guard, you have infinite stamina when wearing light armor";
         public override string CustomInfo { get; set; } = "Facility Guard Fast";
         public override List<string> Inventory { get; set; } = new List<string>()
         {
             $"{ItemType.KeycardGuard}",
             $"{ItemType.ArmorLight}",
             $"{ItemType.GunRevolver}",
-           
+            $"{ItemType.Radio}",
+
+
         };
 
         public override Dictionary<AmmoType, ushort> Ammo { get; set; } = new Dictionary<AmmoType, ushort>()
         {
-            { AmmoType.Ammo44Cal, 120 }
+            { AmmoType.Ammo44Cal, 18 }
         };
 
         public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
@@ -58,8 +60,9 @@ namespace KitchenSink.Roles
              new RoomSpawnPoint()
              {
 
-                Room = RoomType.EzChef,
+                Room = RoomType.EzCheckpointHallwayA,
                 Chance = 50,
+                Offset = new Vector3(0,2,0),
              },
 
 

@@ -23,7 +23,7 @@ namespace KitchenSink.Items
 
         public override uint Id { get; set; } = 100;
         public override string Name { get; set; } = "Life Spender";
-        public override string Description { get; set; } = "Kill's you instantly, but does tons of damage, can teamkill";
+        public override string Description { get; set; } = "Kill's you instantly, but does tons of damage";
         public override float Weight { get; set; } = 1.5f;
         public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
         {
@@ -45,7 +45,7 @@ namespace KitchenSink.Items
 
         protected override void SubscribeEvents()
         {
-            Exiled.Events.Handlers.Player.UsingItemCompleted += OnUsingItem;
+            Exiled.Events.Handlers.Player.Shooting += OnUsingItem;
             Exiled.Events.Handlers.Player.Hurting += OnHitting;
 
             base.SubscribeEvents();
@@ -54,24 +54,31 @@ namespace KitchenSink.Items
         /// <inheritdoc/>
         protected override void UnsubscribeEvents()
         {
-            Exiled.Events.Handlers.Player.UsingItemCompleted -= OnUsingItem;
+            Exiled.Events.Handlers.Player.Shooting -= OnUsingItem;
             Exiled.Events.Handlers.Player.Hurting -= OnHitting;
 
             base.UnsubscribeEvents();
         }
 
-        private void OnUsingItem(UsingItemCompletedEventArgs ev)
+        private void OnUsingItem(ShootingEventArgs ev)
         {
             if (!Check(ev.Player.CurrentItem))
                 return;
-            ev.Player.Kill(DamageType.Falldown);
+            ev.Player.ClearItems();
+            ev.Player.Vaporize();
+            ev.Player.Kill(DamageType.Explosion);
+
+
         }
         private void OnHitting(HurtingEventArgs ev)
         {
-            if (!Check(ev.Player.CurrentItem))
+
+            if (!Check(ev.Attacker.CurrentItem))
                 return;
-            ev.IsAllowed = true;
-            ev.Player.Hurt(1000f, DamageType.Firearm, $" {ev.Attacker}, has smited {ev.Player}, using their own lifeforce");
+            ev.Attacker.ClearItems();
+            ev.Attacker.Vaporize();
+            ev.Attacker.Kill(DamageType.Explosion);
+            ev.Player.Hurt(1000f, DamageType.Unknown);
         }
     }
 }
