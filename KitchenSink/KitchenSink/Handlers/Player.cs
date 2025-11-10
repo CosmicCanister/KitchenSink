@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Exiled.CustomRoles;
 namespace KitchenSink.Handlers
 {
     internal class Player
@@ -43,6 +43,25 @@ namespace KitchenSink.Handlers
             }
 
         }
+
+
+        public void OnPlayerSpawn(SpawnedEventArgs leftEventArgs)
+        {
+            bool isActive = KitchenSinkPlugin.Instance.Config.JoinLeave;
+            if (Server.chanceForSCP008 > 0 )
+            {
+                if (leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp049 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp079 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp096 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp106 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp173 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp3114 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp939)
+                {
+                    leftEventArgs.Player.Role.Set((PlayerRoles.RoleTypeId)65,Exiled.API.Enums.SpawnReason.ForceClass);
+   
+                    
+                }
+
+            }
+
+        }
+
+
 
 
     }

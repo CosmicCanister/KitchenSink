@@ -456,6 +456,7 @@
     <Compile Include="Abilities\Charge.cs" />
     <Compile Include="Abilities\Scout.cs" />
     <Compile Include="Items\Life Spender.cs" />
+    <Compile Include="Roles\SCP0081.cs" />
     <Compile Include="Roles\ScoutClassD.cs" />
     <Compile Include="SSS.cs" />
     <Compile Include="Commands\AdminCom.cs" />
