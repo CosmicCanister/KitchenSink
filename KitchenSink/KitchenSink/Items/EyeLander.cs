@@ -23,6 +23,11 @@ namespace KitchenSink.Items
         public override float Weight { get; set; } = 0.5f;
         public  EffectType effect = EffectType.Vitality;
         public int baseMaxHP;
+
+        
+
+            // Optionally sync with the client
+        
         public static int Kills { get; set; } = 1;
         public override SpawnProperties SpawnProperties { get; set; } =
         new SpawnProperties()
@@ -89,7 +94,6 @@ namespace KitchenSink.Items
             if (!Check(ev.Player.CurrentItem))
                 return;
 
-
             ev.Amount = 50 + Kills * 10;
            
 
@@ -121,6 +125,16 @@ namespace KitchenSink.Items
 
 
         }
+
+
+
+
+
+
+
+
+
+
         private void removeShield(DroppingItemEventArgs ev)
         {
             if (!Check(ev.Item))

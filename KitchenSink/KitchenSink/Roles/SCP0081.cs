@@ -67,17 +67,7 @@ namespace KitchenSink.Roles
 
 
 
-        private void KillingOther(DiedEventArgs ev)
-        {
-            if (!Check(ev.Attacker))
-                return;
-            ev.Player.Role.Set((RoleTypeId)65, RoleSpawnFlags.None);
-            Log.Info("Player killed");
 
-     
-
-
-        }
 
 
 
@@ -90,6 +80,11 @@ namespace KitchenSink.Roles
                 Name = "Charge",
                 Description = "Inf Stamina",
             },
+            new Zombieinfect()
+            {
+                Name = "Zombie Infect",
+                Description = "Infection",
+            }
         };
 
 

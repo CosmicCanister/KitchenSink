@@ -11,8 +11,8 @@ namespace KitchenSink.Handlers
     internal class Server
     {
         public static Random rand { get; set; } = new Random();
-        public static int chanceForSCP008 { get; set; } = rand.Next(0, 101);
 
+        public static int chanceForSCP008 { get; set; } = rand.Next(0, 101);
 
 
         public void GameEnd(RoundEndedEventArgs ev)
@@ -23,7 +23,8 @@ namespace KitchenSink.Handlers
         }
         public void GameStart()
         {
-            Log.Info("Chance for Zombies " + Server.chanceForSCP008);
+
+            Log.Info("Chance for Zombies " + chanceForSCP008);
             chanceForSCP008 = rand.Next(0, 101);
             Exiled.API.Features.Server.FriendlyFire = false;
             Map.Broadcast(6, $"If you are playing a custom role, hit ` to check your abilities, alt to use them, and double tap alt to switch abilities", Broadcast.BroadcastFlags.Normal, true);

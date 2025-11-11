@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Exiled.CustomRoles;
+using Exiled.CustomRoles.API.Features;
+
 namespace KitchenSink.Handlers
 {
     internal class Player
@@ -52,9 +54,9 @@ namespace KitchenSink.Handlers
             {
                 if (leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp049 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp079 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp096 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp106 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp173 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp3114 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp939)
                 {
-                    leftEventArgs.Player.Role.Set((PlayerRoles.RoleTypeId)65,Exiled.API.Enums.SpawnReason.ForceClass);
-   
-                    
+                    CustomRole zombie = Roles.SCP0081.Get(65);
+                    zombie.AddRole(leftEventArgs.Player);
+
                 }
 
             }
