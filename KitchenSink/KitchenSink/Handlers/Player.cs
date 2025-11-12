@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Exiled.CustomRoles;
 using Exiled.CustomRoles.API.Features;
+using MEC;
 
 namespace KitchenSink.Handlers
 {
@@ -49,17 +50,27 @@ namespace KitchenSink.Handlers
 
         public void OnPlayerSpawn(SpawnedEventArgs leftEventArgs)
         {
-            bool isActive = KitchenSinkPlugin.Instance.Config.JoinLeave;
-            if (Server.chanceForSCP008 > 0 )
+            Timing.CallDelayed(2f, () =>
             {
-                if (leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp049 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp079 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp096 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp106 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp173 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp3114 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp939)
+                bool isActive = KitchenSinkPlugin.Instance.Config.JoinLeave;
+                if (Server.ZombieRound)
                 {
-                    CustomRole zombie = Roles.SCP0081.Get(65);
-                    zombie.AddRole(leftEventArgs.Player);
+                    if (leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp049 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp079 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp096 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp106 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp173 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp3114 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp939)
+                    {
+                        Log.Info("ZombieRound");
+                        Timing.CallDelayed(0.5f, () =>
+                        {
+                            CustomRole zombie = Roles.SCP0081.Get(65);
+                            zombie.AddRole(leftEventArgs.Player);
+
+                        });
+
+                    }
 
                 }
 
-            }
+            });
+
 
         }
 
