@@ -28,6 +28,7 @@ namespace KitchenSink.Handlers
             if(chanceForSCP008 < 21)
             {
                 ZombieRound = true;
+                Map.Broadcast(6, $"Zombie round, scps are infectious zombies, dont get infected!", Broadcast.BroadcastFlags.Normal, true);
 
             }
             Exiled.API.Features.Server.FriendlyFire = false;

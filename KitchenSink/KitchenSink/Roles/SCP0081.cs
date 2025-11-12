@@ -35,8 +35,8 @@ namespace KitchenSink.Roles
         public override uint Id { get; set; } = 65;
         public override int MaxHealth { get; set; } = 500;
         public override string Name { get; set; } = "SCP008-1";
-        public override string Description { get; set; } = "Infectious Zombie, with special ability when hitting alt";
-        public override string CustomInfo { get; set; } = "Infectious Zombie, with special ability when hitting alt";
+        public override string Description { get; set; } = "Infectious Zombie";
+        public override string CustomInfo { get; set; } = "Infectious Zombie";
 
 
 
