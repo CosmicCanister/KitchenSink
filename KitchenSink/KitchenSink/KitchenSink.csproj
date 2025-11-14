@@ -457,8 +457,9 @@
     <Compile Include="Abilities\Zombieinfect.cs" />
     <Compile Include="Abilities\Scout.cs" />
     <Compile Include="Items\Life Spender.cs" />
+    <Compile Include="Roles\ChaosInfiltrator.cs" />
     <Compile Include="Roles\SCP0081.cs" />
-    <Compile Include="Roles\ScoutClassD.cs" />
+    <Compile Include="Roles\ScoutGuard.cs" />
     <Compile Include="SSS.cs" />
     <Compile Include="Commands\AdminCom.cs" />
     <Compile Include="Config.cs" />
