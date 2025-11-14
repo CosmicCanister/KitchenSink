@@ -23,7 +23,7 @@ namespace KitchenSink.Items
 
         public override uint Id { get; set; } = 100;
         public override string Name { get; set; } = "Life Spender";
-        public override string Description { get; set; } = "Kill's you instantly, but does tons of damage";
+        public override string Description { get; set; } = "Kill's you instantly when hitting an enemy, but does tons of damage";
         public override float Weight { get; set; } = 1.5f;
         public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
         {
@@ -45,8 +45,9 @@ namespace KitchenSink.Items
 
         protected override void SubscribeEvents()
         {
-            Exiled.Events.Handlers.Player.Shooting += OnUsingItem;
             Exiled.Events.Handlers.Player.Hurting += OnHitting;
+            Exiled.Events.Handlers.Player.Shooting -= OnUsingItem;
+
 
             base.SubscribeEvents();
         }
@@ -54,8 +55,9 @@ namespace KitchenSink.Items
         /// <inheritdoc/>
         protected override void UnsubscribeEvents()
         {
-            Exiled.Events.Handlers.Player.Shooting -= OnUsingItem;
             Exiled.Events.Handlers.Player.Hurting -= OnHitting;
+            Exiled.Events.Handlers.Player.Shooting -= OnUsingItem;
+
 
             base.UnsubscribeEvents();
         }
@@ -65,8 +67,7 @@ namespace KitchenSink.Items
             if (!Check(ev.Player.CurrentItem))
                 return;
             ev.Player.ClearItems();
-            ev.Player.Vaporize();
-            ev.Player.Kill(DamageType.Explosion);
+
 
 
         }
