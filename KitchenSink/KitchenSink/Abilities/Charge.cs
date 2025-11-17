@@ -22,7 +22,7 @@ namespace KitchenSink.Abilities
 
 
         public override float Duration { get; set; } = 6f;
-        public override float Cooldown { get; set; } = 45f;
+        public override float Cooldown { get; set; } = 30f;
         public override string Name { get; set; } = "Charge";
         public override string Description { get; set; } = "Gives you unlimited stamina for a short time";
         protected override void AbilityUsed(Player player)

@@ -57,6 +57,7 @@ namespace KitchenSink.Items
         protected override void UnsubscribeEvents()
         {
             Exiled.Events.Handlers.Player.UsingItemCompleted -= OnUsingItem;
+         
             base.UnsubscribeEvents();
         }
 
@@ -64,7 +65,9 @@ namespace KitchenSink.Items
         {
             if (!Check(ev.Player.CurrentItem))
                 return;
-            ev.Player.MaxHealth += 65;
+          
+            ev.Player.MaxHealth +=  65;
         }
+
     }
 }

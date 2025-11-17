@@ -12,7 +12,7 @@ using MEC;
 using UnityEngine;
 using Exiled.CustomRoles.API.Features.Interfaces;
 using CustomPlayerEffects;
-
+using PlayerRoles;
 using Exiled.API.Features;
 using KitchenSink.Abilities;
 
