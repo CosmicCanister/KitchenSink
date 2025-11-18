@@ -32,7 +32,7 @@ namespace KitchenSink.Roles
 
         public override RoleTypeId Role { get; set; } = RoleTypeId.ClassD;
 
-        public override uint Id { get; set; } = 4;
+        public override uint Id { get; set; } = 69;
         public override int MaxHealth { get; set; } = 110;
         public override string Name { get; set; } = "Class-D Escape Artist";
         public override string Description { get; set; } = "You are given a head-start over all other D Class.";
