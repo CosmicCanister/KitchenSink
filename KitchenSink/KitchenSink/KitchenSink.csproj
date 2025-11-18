@@ -454,6 +454,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities\Charge.cs" />
+    <Compile Include="Abilities\TestSubject.cs" />
     <Compile Include="Abilities\Zombieinfect.cs" />
     <Compile Include="Abilities\Scout.cs" />
     <Compile Include="Items\Life Spender.cs" />
