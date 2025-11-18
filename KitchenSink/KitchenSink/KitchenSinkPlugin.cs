@@ -23,6 +23,12 @@ namespace KitchenSink
     {
         public static KitchenSinkPlugin Instance { get; } = new KitchenSinkPlugin();
 
+        public override string Name => "Kitchen Sink";
+        public override string Author => "CosmicCanister, JimmyDogfsh";
+        
+        
+
+
         public override PluginPriority Priority { get; } = PluginPriority.Medium;
 
         private Handlers.Player player;
@@ -33,7 +39,7 @@ namespace KitchenSink
 
         public override void OnEnabled()
         {
-
+           
             CustomAbility.RegisterAbilities(false);
 
             CustomRole.RegisterRoles(false);
