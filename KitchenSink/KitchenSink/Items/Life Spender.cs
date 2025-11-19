@@ -21,7 +21,7 @@ namespace KitchenSink.Items
     {
 
 
-        public override uint Id { get; set; } = 100;
+        public override uint Id { get; set; } = 10;
         public override string Name { get; set; } = "Life Spender";
         public override string Description { get; set; } = "Kill's you instantly when hitting an enemy, but does tons of damage";
         public override float Weight { get; set; } = 1.5f;
