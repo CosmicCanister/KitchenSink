@@ -73,20 +73,23 @@ namespace KitchenSink.Items
             {
                 ev.Door.IsOpen = true;
                 ev.Door.Unlock();
-                Log.Info("Nuke Opened");
+                Warhead.IsKeycardActivated = true;
+                Log.Info("Nuke Surface Opened");
             }
             if (ev.Door.Type == DoorType.ElevatorNuke)
             {
+                Warhead.IsKeycardActivated = true;
                 ev.Door.IsOpen = true;
                 ev.Door.Unlock();
                 Warhead.IsKeycardActivated = true;
-                Log.Info("Nuke Opened");
+                Log.Info("Nuke Elevator Opened");
             }
             if (ev.Door.DoorLockType == DoorLockType.Warhead)
             {
                 ev.Door.IsOpen = true;
                 ev.Door.Unlock();
-                Log.Info("Nuke Opened");
+                Warhead.IsKeycardActivated = true;
+                Log.Info("Nuke Warhead Opened");
             }
 
 

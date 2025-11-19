@@ -12,11 +12,12 @@ using MEC;
 using UnityEngine;
 using Exiled.CustomRoles.API.Features.Interfaces;
 using CustomPlayerEffects;
-
 using Exiled.API.Features;
+
+using Exiled.CustomRoles;
+using Exiled.CustomRoles.API.Features;
 using KitchenSink.Abilities;
 
-using Exiled.CustomRoles.API.Features;
 using Exiled.Events.EventArgs.Server;
 using PlayerRoles;
 using System.ComponentModel;
@@ -39,7 +40,7 @@ namespace KitchenSink.Roles
 		public override string CustomInfo { get; set; } = "Class-D Escape Artist";
 		public override List<string> Inventory { get; set; } = new List<string>()
 		{
-			$"{ItemType.KeycardO5}",
+			$"{ItemType.KeycardChaosInsurgency}",
 			$"{ItemType.ArmorLight}",
 			$"{ItemType.GrenadeHE}",
 			$"{ItemType.SCP500}",
@@ -60,7 +61,7 @@ namespace KitchenSink.Roles
 			 new RoomSpawnPoint()
 			 {
 
-				Room = RoomType.HczIncineratorWayside,
+				Room = RoomType.HczArmory,
 				Chance = 10,
 				Offset = new Vector3(0,2,0),
 			 },
@@ -87,7 +88,36 @@ namespace KitchenSink.Roles
 
 
 
+		protected override void SubscribeEvents()
+		{
+			Exiled.Events.Handlers.Player.Spawned += OnUsingItem;
 
+			base.SubscribeEvents();
+		}
+
+
+		/// <inheritdoc/>
+		protected override void UnsubscribeEvents()
+		{
+
+			Exiled.Events.Handlers.Player.Spawned -= OnUsingItem;
+			base.UnsubscribeEvents();
+		}
+
+
+		private void OnUsingItem(SpawnedEventArgs ev)
+		{
+			if (!Check(ev.Player))
+				return;
+
+			Map.Broadcast(6, $"Highly dangerous d class subject on the loose, be on your guard", global::Broadcast.BroadcastFlags.Normal, true);
+
+
+
+
+
+
+		}
 
 
 

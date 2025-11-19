@@ -16,25 +16,16 @@ namespace KitchenSink.Abilities
 
         protected override void AbilityAdded(Player player)
         {
-            if (player.CurrentArmor.Type == ItemType.ArmorLight)
-            {
-                player.IsUsingStamina = false;
-
-            }
-            if (player.CurrentArmor.Type == ItemType.None)
-            {
-                player.IsUsingStamina = false;
-
-            }
+            player.EnableEffect(EffectType.Scp207, -1f);
         }
 
 
 
-        public override string Name { get; set; } = "Scout's Speed";
-        public override string Description { get; set; } = "Gives you speed if you're wearing light or no armor";
+        public override string Name { get; set; } = "Test Subject";
+        public override string Description { get; set; } = "Has a constant speed boost, but there are drawbacks";
         protected override void AbilityRemoved(Player player)
         {
-            player.IsUsingStamina = true;
+            player.DisableEffect(EffectType.Scp207);
         }
 
 
