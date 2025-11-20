@@ -90,7 +90,7 @@ namespace KitchenSink.Roles
 
 		protected override void SubscribeEvents()
 		{
-			Exiled.Events.Handlers.Player.Spawned += OnUsingItem;
+            PlayerEvent.Spawned += OnUsingItem;
 
 			base.SubscribeEvents();
 		}
@@ -100,7 +100,7 @@ namespace KitchenSink.Roles
 		protected override void UnsubscribeEvents()
 		{
 
-			Exiled.Events.Handlers.Player.Spawned -= OnUsingItem;
+            PlayerEvent.Spawned -= OnUsingItem;
 			base.UnsubscribeEvents();
 		}
 
