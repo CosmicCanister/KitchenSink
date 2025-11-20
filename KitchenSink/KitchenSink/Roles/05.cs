@@ -99,7 +99,9 @@ namespace KitchenSink.Roles
 
         private void OnUsingItem(SpawnedEventArgs ev)
         {
-
+            
+            if (!CustomRole.Get(Id).Check(ev.Player))
+                return;
 
             Map.Broadcast(6, $"Highly Important Personnel on site, if they die the site is set to self destruct", global::Broadcast.BroadcastFlags.Normal, true);
 
@@ -112,8 +114,8 @@ namespace KitchenSink.Roles
 
         private void OnDeath(DiedEventArgs ev)
         {
-
-
+            if (!CustomRole.Get(Id).Check(ev.Player))
+                return;
             Warhead.Start();
 
 

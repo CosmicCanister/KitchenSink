@@ -107,7 +107,7 @@ namespace KitchenSink.Roles
 
 		private void OnUsingItem(SpawnedEventArgs ev)
 		{
-			if (!Check(ev.Player))
+			if (!CustomRole.Get(Id).Check(ev.Player))
 				return;
 
 			Map.Broadcast(6, $"Highly dangerous d class subject on the loose, be on your guard", global::Broadcast.BroadcastFlags.Normal, true);

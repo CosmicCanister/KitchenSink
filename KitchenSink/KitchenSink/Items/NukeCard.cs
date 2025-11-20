@@ -22,7 +22,7 @@ namespace KitchenSink.Items
         public override uint Id { get; set; } = 5;
         public override byte Rank { get; set; } = 32;
         public override string Name { get; set; } = "NukeCard";
-        public override string Description { get; set; } = "KeyCard Only Used to Activate the Nuke";
+        public override string Description { get; set; } = "Only used to open the surface nuke panel";
         public override float Weight { get; set; } = 0.5f;
         public override string KeycardLabel { get; set; } = "Nuke card";
         public override ItemType Type { get; set; } = ItemType.KeycardCustomTaskForce;
@@ -50,8 +50,7 @@ namespace KitchenSink.Items
 
         protected override void SubscribeEvents()
         {
-            Exiled.Events.Handlers.Player.InteractingDoor += OnUsingItem;
-
+            Exiled.Events.Handlers.Player.ActivatingWarheadPanel += WarheadActivate;
             base.SubscribeEvents();
         }
 
@@ -60,40 +59,23 @@ namespace KitchenSink.Items
         protected override void UnsubscribeEvents()
         {
 
-            Exiled.Events.Handlers.Player.InteractingDoor -= OnUsingItem;
+            Exiled.Events.Handlers.Player.ActivatingWarheadPanel -= WarheadActivate;
             base.UnsubscribeEvents();
         }
 
 
-        private void OnUsingItem(InteractingDoorEventArgs ev)
+
+        private void WarheadActivate(ActivatingWarheadPanelEventArgs ev)
         {
             if (!Check(ev.Player.CurrentItem))
                 return;
-            if (ev.Door.Type == DoorType.NukeSurface)
-            {
-                ev.Door.IsOpen = true;
-                ev.Door.Unlock();
+
                 Warhead.IsKeycardActivated = true;
                 Log.Info("Nuke Surface Opened");
-            }
-            if (ev.Door.Type == DoorType.ElevatorNuke)
-            {
-                Warhead.IsKeycardActivated = true;
-                ev.Door.IsOpen = true;
-                ev.Door.Unlock();
-                Warhead.IsKeycardActivated = true;
-                Log.Info("Nuke Elevator Opened");
-            }
-            if (ev.Door.DoorLockType == DoorLockType.Warhead)
-            {
-                ev.Door.IsOpen = true;
-                ev.Door.Unlock();
-                Warhead.IsKeycardActivated = true;
-                Log.Info("Nuke Warhead Opened");
-            }
+            
+
 
 
         }
-
     }
 }
