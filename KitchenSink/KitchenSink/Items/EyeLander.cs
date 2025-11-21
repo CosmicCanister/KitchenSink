@@ -94,7 +94,7 @@ namespace KitchenSink.Items
             if (!Check(ev.Player.CurrentItem))
                 return;
 
-            ev.Amount = 50 + Kills * 10;
+            ev.Amount += 75 + Kills * 10;
            
 
 
@@ -108,6 +108,8 @@ namespace KitchenSink.Items
             Log.Info("Player killed");
 
             ev.Attacker.MaxHealth += 25 * Kills;
+            ev.Player.Stamina += 100;
+           
             ev.Attacker.Heal(25);
 
 

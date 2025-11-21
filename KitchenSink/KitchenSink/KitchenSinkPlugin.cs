@@ -44,6 +44,7 @@ namespace KitchenSink
 
             CustomRole.RegisterRoles(false);
             CustomItem.RegisterItems();
+            
 
             RegisterEvents();
 
