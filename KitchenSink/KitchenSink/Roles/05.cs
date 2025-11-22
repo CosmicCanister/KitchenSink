@@ -42,7 +42,7 @@ namespace KitchenSink.Roles
             
             $"{ItemType.Adrenaline}",
             $"{ItemType.ArmorLight}",
-            $"{ItemType.KeycardScientist}",
+            $"{ItemType.KeycardO5}",
             $"{ItemType.GrenadeFlash}",
             $"{ItemType.ParticleDisruptor}",
             $"{ItemType.Medkit}",
@@ -56,14 +56,13 @@ namespace KitchenSink.Roles
         public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
         {
             Limit = 1,
-            RoomSpawnPoints = new List<RoomSpawnPoint>
+            DynamicSpawnPoints = new List<DynamicSpawnPoint>
             {
-             new RoomSpawnPoint()
+             new DynamicSpawnPoint()
              {
 
-                Room = RoomType.EzCafeteria,
+                Location = SpawnLocationType.InsideIntercom,
                 Chance = 5,
-                Offset = new Vector3(0,2,0),
              },
 
 
