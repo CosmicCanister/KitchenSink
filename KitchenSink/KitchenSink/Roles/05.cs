@@ -113,8 +113,7 @@ namespace KitchenSink.Roles
             if (hasRole == false)
                 return;
 
-            Map.Broadcast(6, $"Highly Important Personnel on site, if they die the site is set to self destruct", global::Broadcast.BroadcastFlags.Normal, true);
-
+            Cassie.Message($"Highly Important Personnel on site, if they die the site is set to self destruct");
 
 
 
