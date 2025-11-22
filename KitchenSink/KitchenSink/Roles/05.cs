@@ -99,8 +99,18 @@ namespace KitchenSink.Roles
 
         private void OnUsingItem(SpawnedEventArgs ev)
         {
-            
-            if (!true)
+
+            bool hasRole = false;
+            CustomRole EscapeArtist = Roles.Council05.Get(Id);
+            foreach (Player p in EscapeArtist.TrackedPlayers)
+            {
+                if (ev.Player == p)
+                {
+                    hasRole = true;
+                }
+            }
+
+            if (hasRole == false)
                 return;
 
             Map.Broadcast(6, $"Highly Important Personnel on site, if they die the site is set to self destruct", global::Broadcast.BroadcastFlags.Normal, true);
@@ -114,7 +124,17 @@ namespace KitchenSink.Roles
 
         private void OnDeath(DiedEventArgs ev)
         {
-            if (!true)
+            bool hasRole = false;
+            CustomRole EscapeArtist = Roles.Council05.Get(Id);
+            foreach (Player p in EscapeArtist.TrackedPlayers)
+            {
+                if (ev.Player == p)
+                {
+                    hasRole = true;
+                }
+            }
+
+            if (hasRole == false)
                 return;
             Warhead.Start();
 

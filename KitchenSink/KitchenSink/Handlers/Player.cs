@@ -61,6 +61,7 @@ namespace KitchenSink.Handlers
                         Timing.CallDelayed(0.5f, () =>
                         {
                             CustomRole zombie = Roles.SCP0081.Get(65);
+                           
                             zombie.AddRole(leftEventArgs.Player);
 
                         });

@@ -107,7 +107,17 @@ namespace KitchenSink.Roles
 
 		private void OnUsingItem(SpawnedEventArgs ev)
 		{
-			if (!true) 
+			bool hasRole = false;
+			CustomRole EscapeArtist = Roles.ClassDEscapeArtist.Get(Id);
+			foreach(Player p in EscapeArtist.TrackedPlayers)
+            {
+				if(ev.Player == p)
+                {
+					hasRole = true;
+                }
+            }
+			
+			if (hasRole == false) 
 				return;
 
 			Map.Broadcast(6, $"Highly dangerous d class subject on the loose, be on your guard", global::Broadcast.BroadcastFlags.Normal, true);
