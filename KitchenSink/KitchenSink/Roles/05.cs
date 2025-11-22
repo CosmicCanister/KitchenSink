@@ -104,7 +104,7 @@ namespace KitchenSink.Roles
             CustomRole EscapeArtist = Roles.Council05.Get(Id);
             foreach (Player p in EscapeArtist.TrackedPlayers)
             {
-                if (ev.Player == p)
+                if (ev.Player.Nickname == p.Nickname)
                 {
                     hasRole = true;
                 }
@@ -127,7 +127,7 @@ namespace KitchenSink.Roles
             CustomRole EscapeArtist = Roles.Council05.Get(Id);
             foreach (Player p in EscapeArtist.TrackedPlayers)
             {
-                if (ev.Player == p)
+                if (ev.Player.Nickname == p.Nickname)
                 {
                     hasRole = true;
                 }
