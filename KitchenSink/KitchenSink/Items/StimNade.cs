@@ -44,7 +44,7 @@ namespace KitchenSink.Items
 
         protected override void OnExploding(ExplodingGrenadeEventArgs ev)
         {
-            ev.ExplosionType = ExplosionType.Custom;
+            ev.IsAllowed = false;
 
             foreach(Player p in ev.TargetsToAffect)
             {

@@ -30,12 +30,12 @@ namespace KitchenSink.Items
     using Exiled.API.Features.Roles;
 
 
-    [CustomItem(ItemType.GrenadeHE)]
+    [CustomItem(ItemType.GrenadeFlash)]
     public class MakeExplodeNade : CustomGrenade
     {
 
 
-        public override uint Id { get; set; } = 10;
+        public override uint Id { get; set; } = 11;
         public override string Name { get; set; } = "MakePeopleExplode";
         public override string Description { get; set; } = "Makes people explode, its delayed by a couple seconds";
         public override float Weight { get; set; } = 1.5f;
@@ -44,8 +44,8 @@ namespace KitchenSink.Items
 
         protected override void OnExploding(ExplodingGrenadeEventArgs ev)
         {
-            ev.ExplosionType = ExplosionType.Custom;
-
+           
+            
             foreach (Player p in ev.TargetsToAffect)
             {
                 Timing.CallDelayed(10f, () =>
