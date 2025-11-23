@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Exiled.CustomRoles;
 using Exiled.CustomRoles.API.Features;
 using MEC;
+using Exiled.API.Features.Doors;
+using Exiled.API.Enums;
 
 namespace KitchenSink.Handlers
 {
@@ -21,6 +23,7 @@ namespace KitchenSink.Handlers
             if (isActive)
             {
                 Map.Broadcast(6, $"{ev.Player.Nickname} has joined the server", Broadcast.BroadcastFlags.Normal, true);
+                
 
 
                 Log.Info("Player Joined");
@@ -61,7 +64,12 @@ namespace KitchenSink.Handlers
                         Timing.CallDelayed(0.5f, () =>
                         {
                             CustomRole zombie = Roles.SCP0081.Get(65);
-                           
+                            var armory = Door.Get(DoorType.Scp106Secondary);
+                            armory.IsOpen = true;
+                            armory = Door.Get(DoorType.Scp106Primary);
+                            armory.IsOpen = true;
+                            armory = Door.Get(DoorType.Scp106Checkpoint);
+                            armory.IsOpen = true;
                             zombie.AddRole(leftEventArgs.Player);
 
                         });
