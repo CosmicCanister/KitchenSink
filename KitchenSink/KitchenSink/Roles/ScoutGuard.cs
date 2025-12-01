@@ -31,7 +31,8 @@ namespace KitchenSink.Roles
     {
 
         public override RoleTypeId Role { get; set; } = RoleTypeId.FacilityGuard;
-
+        public override Vector3 Scale { get; set; } = new Vector3(1, 1f, 0.8f);
+        public override float SpawnChance { get; set; } = 25f;
         public override uint Id { get; set; } = 66;
         public override int MaxHealth { get; set; } = 90;
         public override string Name { get; set; } = "Scout Guard";

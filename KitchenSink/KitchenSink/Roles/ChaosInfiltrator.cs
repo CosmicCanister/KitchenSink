@@ -31,7 +31,7 @@ namespace KitchenSink.Roles
     {
 
         public override RoleTypeId Role { get; set; } = RoleTypeId.ChaosRifleman;
-
+        public override float SpawnChance { get; set; } = 10f;
         public override uint Id { get; set; } = 68;
         public override int MaxHealth { get; set; } = 100;
         public override string Name { get; set; } = "Chaos Infiltrator";

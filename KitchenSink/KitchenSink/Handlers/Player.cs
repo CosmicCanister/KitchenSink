@@ -58,6 +58,22 @@ namespace KitchenSink.Handlers
                 bool isActive = KitchenSinkPlugin.Instance.Config.JoinLeave;
                 if (Server.ZombieRound)
                 {
+
+                    if(leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp079)
+                    {
+                        Timing.CallDelayed(0.5f, () =>
+                        {
+                            CustomRole zombie = Roles.SCP0081.Get(65);
+                            var armory = Door.Get(DoorType.Scp106Secondary);
+                            armory.IsOpen = true;
+                            armory = Door.Get(DoorType.Scp106Primary);
+                            armory.IsOpen = true;
+                            armory = Door.Get(DoorType.Scp106Checkpoint);
+                            armory.IsOpen = true;
+                            zombie.AddRole(leftEventArgs.Player);
+
+                        });
+                    }
                     if (leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp049 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp079 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp096 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp106 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp173 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp3114 || leftEventArgs.Player.Role == PlayerRoles.RoleTypeId.Scp939)
                     {
                         Log.Info("ZombieRound");

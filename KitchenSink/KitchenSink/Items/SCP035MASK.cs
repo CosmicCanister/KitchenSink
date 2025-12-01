@@ -55,7 +55,7 @@ namespace KitchenSink.Items
         {
 
 
-            Exiled.Events.Handlers.Player.UsingItemCompleted += UsingItem;
+            Exiled.Events.Handlers.Player.UsedItem += UsingItem;
             base.SubscribeEvents();
         }
 
@@ -63,18 +63,18 @@ namespace KitchenSink.Items
         protected override void UnsubscribeEvents()
         {
 
-            Exiled.Events.Handlers.Player.UsingItemCompleted -= UsingItem;
+            Exiled.Events.Handlers.Player.UsedItem -= UsingItem;
 
             base.UnsubscribeEvents();
         }
-        private void UsingItem(UsingItemCompletedEventArgs ev)
+        private void UsingItem(UsedItemEventArgs ev)
         {
             if (!Check(ev.Player.CurrentItem))
                 return;
 
 
             ev.Item.Destroy();
-            CustomRole SCP035MASK = Roles.SCP0081.Get(66);
+            CustomRole SCP035MASK = Roles.SCP0081.Get(71);
             SCP035MASK.AddRole(ev.Player);
 
 

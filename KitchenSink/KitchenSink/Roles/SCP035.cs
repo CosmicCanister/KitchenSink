@@ -21,7 +21,7 @@ using Exiled.Events.EventArgs.Server;
 using PlayerRoles;
 using System.ComponentModel;
 using PlayerEvent = Exiled.Events.Handlers.Player;
-namespace KitchenSink.Items
+namespace KitchenSink.Roles
 {
     [CustomRole(RoleTypeId.Scp049)]
 
@@ -30,7 +30,7 @@ namespace KitchenSink.Items
         public override uint Id { get; set; } = 71;
         public override int MaxHealth { get; set; } = 500;
         public override bool KeepInventoryOnSpawn { get; set; } = true;
-        public RoleTypeId VisibleRole { get; set; } = RoleTypeId.Scp049;
+        public RoleTypeId VisibleRole { get; set; } = RoleTypeId.Tutorial;
         public override RoleTypeId Role { get; set; } = RoleTypeId.Tutorial;
         public override string Name { get; set; } = "Scp 035";
 
@@ -40,13 +40,33 @@ namespace KitchenSink.Items
         public override float SpawnChance { get; set; } = 0;
         public override bool RemovalKillsPlayer { get; set; } = true;
 
-        public override bool IgnoreSpawnSystem { get; set; } = false;
+        public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
+        {
+            Limit = 1,
+            RoomSpawnPoints = new List<RoomSpawnPoint>
+            {
+             new RoomSpawnPoint()
+             {
 
+                Room = RoomType.EzCheckpointHallwayA,
+                Chance = 100,
+                Offset = new Vector3(0,2,0),
+             },
+
+
+
+
+
+
+
+              },
+        };
 
         public override List<CustomAbility> CustomAbilities { get; set; } = new List<CustomAbility>()
         {
             new Decaying()
             {
+                
                 Name = "Decaying",
                 Description = "You are decaying, find HP",
             },

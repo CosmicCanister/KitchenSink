@@ -6,37 +6,42 @@ using MEC;
 using PlayerRoles;
 using Exiled.API.Enums;
 using UnityEngine;
+using System.Collections.Generic;
+
 namespace KitchenSink.Abilities
 {
     [CustomAbility]
-
     public class Decaying : PassiveAbility
     {
         public override string Name { get; set; } = "Decay";
         public override string Description { get; set; } = "You are constantly dying";
-        public int IsActive { get; set; } = 1;
 
-
+        private CoroutineHandle decayCoroutine;
 
         protected override void AbilityAdded(Player player)
         {
-            while (IsActive == 1)
-            {
-                Timing.CallDelayed(5f, () =>
-                {
-                    player.Health -= 10;
-
-                });
-
-
-            }
-
+            decayCoroutine = Timing.RunCoroutine(Decay(player));
         }
 
         protected override void AbilityRemoved(Player player)
         {
-            IsActive = 0;
-            
+            Timing.KillCoroutines(decayCoroutine);
+        }
+
+        private IEnumerator<float> Decay(Player player)
+        {
+            while (true)
+            {
+                yield return Timing.WaitForSeconds(15f);
+
+                if (player == null || !player.IsAlive)
+                    yield break;
+                if(player.Health - 15 <= 0)
+                {
+                    player.Kill(DamageType.Bleeding);
+                }
+                player.Health -= 15;
+            }
         }
     }
 }

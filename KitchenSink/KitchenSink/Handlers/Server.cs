@@ -32,11 +32,13 @@ namespace KitchenSink.Handlers
         }
         public void GameStart()
         {
+            ZombieRound = false;
+
             Random rand = new Random();
 
             int chanceForSCP008 = rand.Next(0, 101);
             Log.Info("Chance for Zombies " + chanceForSCP008);
-            if (chanceForSCP008 < 21)
+            if (chanceForSCP008 < 11)
             {
                 ZombieRound = true;
                 Map.Broadcast(6, $"Zombie round, scps are infectious zombies, dont get infected!", Broadcast.BroadcastFlags.Normal, true);

@@ -31,7 +31,7 @@ namespace KitchenSink.Roles
     {
 
         public override RoleTypeId Role { get; set; } = RoleTypeId.Scientist;
-
+        public override float SpawnChance { get; set; } = 5f;
         public override uint Id { get; set; } = 70;
         public override int MaxHealth { get; set; } = 150;
         public override string Name { get; set; } = "05 Council personnel";

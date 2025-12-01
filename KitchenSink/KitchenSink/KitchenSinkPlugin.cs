@@ -36,7 +36,7 @@ namespace KitchenSink
         private KitchenSinkPlugin() { }
 
 
-
+         
         public override void OnEnabled()
         {
            
@@ -45,7 +45,7 @@ namespace KitchenSink
             CustomRole.RegisterRoles(false);
             CustomItem.RegisterItems();
             
-
+            
             RegisterEvents();
 
         }
@@ -63,7 +63,6 @@ namespace KitchenSink
 
         public void RegisterEvents()
         {
-
 
 
             player = new Handlers.Player();
@@ -120,7 +119,6 @@ namespace KitchenSink
              * 
              * 
              */
-
 
 
             player = null;
