@@ -454,10 +454,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities\Charge.cs" />
+    <Compile Include="Abilities\Decaying.cs" />
     <Compile Include="Abilities\TestSubject.cs" />
     <Compile Include="Abilities\Zombieinfect.cs" />
     <Compile Include="Abilities\Scout.cs" />
     <Compile Include="Commands\StartZombieRound.cs" />
+    <Compile Include="Items\SCP035MASK.cs" />
+    <Compile Include="Roles\SCP035.cs" />
     <Compile Include="Items\MakePeopleExplodeNade.cs" />
     <Compile Include="Items\StimNade.cs" />
     <Compile Include="Items\Life Spender.cs" />

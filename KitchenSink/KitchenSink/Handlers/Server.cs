@@ -19,13 +19,24 @@ namespace KitchenSink.Handlers
             Exiled.API.Features.Server.FriendlyFire = true;
             ZombieRound  = false;
         }
+        public void GameStartFire()
+        {
+
+
+            Exiled.API.Features.Server.FriendlyFire = false;
+
+
+
+
+
+        }
         public void GameStart()
         {
-            Random rand  = new Random();
+            Random rand = new Random();
 
-            int chanceForSCP008  = rand.Next(0, 101);
+            int chanceForSCP008 = rand.Next(0, 101);
             Log.Info("Chance for Zombies " + chanceForSCP008);
-            if(chanceForSCP008 < 21)
+            if (chanceForSCP008 < 21)
             {
                 ZombieRound = true;
                 Map.Broadcast(6, $"Zombie round, scps are infectious zombies, dont get infected!", Broadcast.BroadcastFlags.Normal, true);
@@ -41,7 +52,6 @@ namespace KitchenSink.Handlers
 
 
         }
-
     }
 }
 
