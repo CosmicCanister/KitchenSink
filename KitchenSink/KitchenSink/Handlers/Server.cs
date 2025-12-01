@@ -31,10 +31,10 @@ namespace KitchenSink.Handlers
                 Map.Broadcast(6, $"Zombie round, scps are infectious zombies, dont get infected!", Broadcast.BroadcastFlags.Normal, true);
 
             }
-            Exiled.API.Features.Server.FriendlyFire = false;
             Map.Broadcast(6, $"If you are playing a custom role, hit ` to check your abilities, alt to use them, and double tap alt to switch abilities", Broadcast.BroadcastFlags.Normal, true);
 
 
+            Exiled.API.Features.Server.FriendlyFire = false;
 
 
 

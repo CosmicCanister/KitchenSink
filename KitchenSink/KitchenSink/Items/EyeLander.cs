@@ -94,7 +94,7 @@ namespace KitchenSink.Items
             if (!Check(ev.Player.CurrentItem))
                 return;
 
-            ev.Amount += 75 + Kills * 10;
+            ev.Amount += 75 + Kills * 50;
            
 
 
