@@ -142,7 +142,15 @@ namespace KitchenSink.Roles
 
         }
 
+        public override List<CustomAbility> CustomAbilities { get; set; } = new List<CustomAbility>()
+        {
+            new NuclearFailure()
+            {
+                Name = "Nuclear Failure",
+                Description = "Nuke goes off on death",
+            },
 
+        };
 
 
 
