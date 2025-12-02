@@ -15,6 +15,7 @@ namespace KitchenSink.Items
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
     using Exiled.CustomRoles.API.Features;
+    using UnityEngine;
 
     [CustomItem(ItemType.SCP1344)]
     public class SCP035MASK : CustomItem
@@ -72,10 +73,12 @@ namespace KitchenSink.Items
             if (!Check(ev.Player.CurrentItem))
                 return;
 
+            Vector3 oldPos = ev.Player.Position;
 
             ev.Item.Destroy();
             CustomRole SCP035MASK = Roles.SCP0081.Get(71);
             SCP035MASK.AddRole(ev.Player);
+            ev.Player.Position = oldPos;
 
 
         }

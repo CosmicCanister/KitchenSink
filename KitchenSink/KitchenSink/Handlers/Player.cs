@@ -1,4 +1,5 @@
 ﻿using Exiled.API.Features;
+using Exiled.API.Features.Roles;
 using Exiled.Events.EventArgs.Player;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,9 @@ using Exiled.CustomRoles.API.Features;
 using MEC;
 using Exiled.API.Features.Doors;
 using Exiled.API.Enums;
-
+using PlayerRoles;
+using System.ComponentModel;
+using PlayerEvent = Exiled.Events.Handlers.Player;
 namespace KitchenSink.Handlers
 {
     internal class Player
@@ -35,7 +38,45 @@ namespace KitchenSink.Handlers
 
         }
 
+        public void InjureSCPSSCP035(HurtingEventArgs ev)
+        {
+            bool hasRole = false;
+            CustomRole EscapeArtist = Roles.ClassDEscapeArtist.Get(71);
+            foreach (Exiled.API.Features.Player p in EscapeArtist.TrackedPlayers)
+            {
+                if (ev.Attacker == p)
+                {
+                    hasRole = true;
+                }
+            }
+            if (hasRole == false || ev.Player.Role.Team != Team.SCPs)
+            {
+                return;
+            }
+            ev.IsAllowed = false;
 
+
+        }
+
+        public void InjureSCP035SCPS(HurtingEventArgs ev)
+        {
+            bool hasRole = false;
+            CustomRole EscapeArtist = Roles.ClassDEscapeArtist.Get(71);
+            foreach (Exiled.API.Features.Player p in EscapeArtist.TrackedPlayers)
+            {
+                if (ev.Player == p)
+                {
+                    hasRole = true;
+                }
+            }
+            if (hasRole == false || ev.Attacker.Role.Team != Team.SCPs)
+            {
+                return;
+            }
+            ev.IsAllowed = false;
+
+
+        }
         public void OnPlayerLeave(LeftEventArgs leftEventArgs)
         {
             Log.Info("but bug Left");

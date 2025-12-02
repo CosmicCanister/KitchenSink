@@ -29,6 +29,8 @@ namespace KitchenSink.Roles
     {
         public override uint Id { get; set; } = 71;
         public override int MaxHealth { get; set; } = 500;
+
+        
         public override bool KeepInventoryOnSpawn { get; set; } = true;
         public RoleTypeId VisibleRole { get; set; } = RoleTypeId.Tutorial;
         public override RoleTypeId Role { get; set; } = RoleTypeId.Tutorial;
@@ -70,7 +72,11 @@ namespace KitchenSink.Roles
                 Name = "Decaying",
                 Description = "You are decaying, find HP",
             },
-
+            new HPsteal()
+            {
+                Name = "LifeSteal",
+                Description = "Kills give HP",
+            },
         };
     }
 }

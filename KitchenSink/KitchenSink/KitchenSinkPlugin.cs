@@ -73,6 +73,9 @@ namespace KitchenSink
             Server.RoundEnded += server.GameEnd;
             Server.RoundStarted += server.GameStart;
             Server.RoundStarted += server.GameStartFire;
+            Player.Hurting += player.InjureSCP035SCPS;
+            Player.Hurting += player.InjureSCPSSCP035;
+
             /*
                         Player.Left += player.OnPlayerLeave;
                         Player.Joined += player.OnPlayCon;
@@ -101,7 +104,8 @@ namespace KitchenSink
             Player.Joined -= player.OnPlayCon;
             Player.Spawned -= player.OnPlayerSpawn;
             Server.RoundStarted -= server.GameStartFire;
-
+            Player.Hurting -= player.InjureSCP035SCPS;
+            Player.Hurting -= player.InjureSCPSSCP035;
             Server.RoundEnded -= server.GameEnd;
             Server.RoundStarted -= server.GameStart;
             /*
