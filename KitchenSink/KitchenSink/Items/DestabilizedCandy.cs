@@ -25,7 +25,7 @@ namespace KitchenSink.Items
 
         public override uint Id { get; set; } = 68;
         public override string Name { get; set; } = "Destabalized Candy";
-        public override string Description { get; set; } = "Unstable new candy prototype that gives you tha ability to teleport when hitting alt";
+        public override string Description { get; set; } = "Unstable new candy prototype that gives you the ability to teleport when hitting alt";
         public override float Weight { get; set; } = 1.5f;
         public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
         {

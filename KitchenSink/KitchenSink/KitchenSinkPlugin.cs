@@ -74,6 +74,7 @@ namespace KitchenSink
             Player.Spawned += player.OnPlayerSpawn;
             Server.RoundEnded += server.GameEnd;
             Server.RoundStarted += server.GameStart;
+            Player.Died += player.RemoveTPAbility;
             Server.RoundStarted += server.GameStartFire;
             Player.Hurting += player.InjureSCP035SCPS;
             LabApi.Events.Handlers.PlayerEvents.InteractedScp330 += player.Scp330TPCANDY;
@@ -107,6 +108,8 @@ namespace KitchenSink
             Player.Joined -= player.OnPlayCon;
             Player.Spawned -= player.OnPlayerSpawn;
             Server.RoundStarted -= server.GameStartFire;
+            Player.Died -= player.RemoveTPAbility;
+
             Player.Hurting -= player.InjureSCP035SCPS;
             Player.Hurting -= player.InjureSCPSSCP035;
             Server.RoundEnded -= server.GameEnd;

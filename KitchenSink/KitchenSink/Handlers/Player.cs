@@ -111,6 +111,12 @@ namespace KitchenSink.Handlers
             }
 
         }
+        public void RemoveTPAbility(DiedEventArgs ev)
+        {
+            CustomAbility teleport = CustomAbility.Get("Teleportation");
+            teleport.RemoveAbility(ev.Player);
+
+        }
         public void OnPlayerSpawn(SpawnedEventArgs leftEventArgs)
         {
             Timing.CallDelayed(2f, () =>
