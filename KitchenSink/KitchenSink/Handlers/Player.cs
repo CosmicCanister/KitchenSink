@@ -123,6 +123,7 @@ namespace KitchenSink.Handlers
                     {
                         Timing.CallDelayed(0.5f, () =>
                         {
+                            leftEventArgs.Player.Role.Set(RoleTypeId.Scp049);
                             CustomRole zombie = Roles.SCP0081.Get(65);
                             var armory = Door.Get(DoorType.Scp106Secondary);
                             armory.IsOpen = true;
