@@ -32,7 +32,6 @@ namespace KitchenSink.Roles
 	{
 
 		public override RoleTypeId Role { get; set; } = RoleTypeId.Scientist;
-		CustomKeycard newcard = FreemansCard.(67);
 		public override uint Id { get; set; } = 4;
 		public override int MaxHealth { get; set; } = 125;
 		public override string Name { get; set; } = "Gordon Freeman";
@@ -45,7 +44,8 @@ namespace KitchenSink.Roles
 			$"{ItemType.Lantern}",
 			$"{ItemType.SCP500}",
 			$"{ItemType.Medkit}",
-			$"{ItemType.}",
+			
+
 		};
 
 		public override Dictionary<AmmoType, ushort> Ammo { get; set; } = new Dictionary<AmmoType, ushort>()
@@ -81,6 +81,11 @@ namespace KitchenSink.Roles
 				Name = "Test Subject",
 				Description = "Gives effects of SCP-207 For the durration of the round",
 			},
+			new FreeMan()
+            {
+				Name = "Free Man",
+				Description = "Get FreeMan Card"
+            },
 		};
 
 
