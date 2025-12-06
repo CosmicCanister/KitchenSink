@@ -61,7 +61,7 @@ namespace KitchenSink.Roles
 			 new RoomSpawnPoint()
 			 {
 
-				Room = RoomType.HczArmory,
+				Room = RoomType.HczElevatorA,
 				Chance = 10,
 				Offset = new Vector3(0,2,0),
 			 },

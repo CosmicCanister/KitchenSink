@@ -454,6 +454,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities\Charge.cs" />
+    <Compile Include="Abilities\FreeMan.cs" />
+    <Compile Include="Abilities\TestSubject.cs" />
+    <Compile Include="Abilities\Zombieinfect.cs" />
+    <Compile Include="Abilities\Scout.cs" />
+    <Compile Include="Items\FreemanCard.cs" />
     <Compile Include="Abilities\Teleportation.cs" />
     <Compile Include="Abilities\NuclearFailure.cs" />
     <Compile Include="Abilities\HPsteal.cs" />
@@ -471,6 +476,7 @@
     <Compile Include="Roles\ChaosInfiltrator.cs" />
     <Compile Include="Roles\05.cs" />
     <Compile Include="Roles\ClassDEscapeArtist.cs" />
+    <Compile Include="Roles\GordonFreeman.cs" />
     <Compile Include="Roles\SCP0081.cs" />
     <Compile Include="Roles\ScoutGuard.cs" />
     <Compile Include="SSS.cs" />
