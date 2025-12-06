@@ -454,10 +454,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities\Charge.cs" />
-    <Compile Include="Abilities\FreeMan.cs" />
-    <Compile Include="Abilities\TestSubject.cs" />
-    <Compile Include="Abilities\Zombieinfect.cs" />
     <Compile Include="Abilities\Scout.cs" />
+    <Compile Include="Abilities\TestSubject.cs" />
+    <Compile Include="Abilities\FreeMan.cs" />
+    <Compile Include="Abilities\Zombieinfect.cs" />
     <Compile Include="Items\FreemanCard.cs" />
     <Compile Include="Abilities\Teleportation.cs" />
     <Compile Include="Abilities\NuclearFailure.cs" />
