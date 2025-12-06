@@ -12,10 +12,12 @@ using s914 = Exiled.Events.Handlers.Scp914;
 using s049 = Exiled.Events.Handlers.Scp049;
 using MEC;
 using Exiled.CustomItems.API.Features;
-
+using LabApi.Events.Arguments.PlayerEvents;
 using Exiled.CustomRoles.API.Features;
 using Exiled.Events.EventArgs.Server;
 using PlayerRoles;
+using InventorySystem.Items.Usables.Scp330;
+
 //the other handlers are for if I want to make events for scp events
 namespace KitchenSink
 {
@@ -74,6 +76,7 @@ namespace KitchenSink
             Server.RoundStarted += server.GameStart;
             Server.RoundStarted += server.GameStartFire;
             Player.Hurting += player.InjureSCP035SCPS;
+            LabApi.Events.Handlers.PlayerEvents.InteractedScp330 += player.Scp330TPCANDY;
             Player.Hurting += player.InjureSCPSSCP035;
 
             /*
@@ -107,6 +110,7 @@ namespace KitchenSink
             Player.Hurting -= player.InjureSCP035SCPS;
             Player.Hurting -= player.InjureSCPSSCP035;
             Server.RoundEnded -= server.GameEnd;
+            LabApi.Events.Handlers.PlayerEvents.InteractedScp330 -= player.Scp330TPCANDY;
             Server.RoundStarted -= server.GameStart;
             /*
              *             Player.UsedItem -= player.OnPlayerUse;

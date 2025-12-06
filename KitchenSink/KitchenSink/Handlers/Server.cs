@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KitchenSink.Handlers
 {
-
+    
     internal class Server
     {
         public static bool ZombieRound { get; set; } = false;

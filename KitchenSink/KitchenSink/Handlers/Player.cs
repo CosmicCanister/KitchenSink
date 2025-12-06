@@ -14,6 +14,11 @@ using Exiled.API.Enums;
 using PlayerRoles;
 using System.ComponentModel;
 using PlayerEvent = Exiled.Events.Handlers.Player;
+using InventorySystem.Items.Usables.Scp330;
+using LabApi.Events.Arguments.PlayerEvents;
+using Exiled.CustomItems.API.Features;
+using UnityEngine;
+
 namespace KitchenSink.Handlers
 {
     internal class Player
@@ -91,7 +96,16 @@ namespace KitchenSink.Handlers
 
         }
 
+        public void Scp330TPCANDY(PlayerInteractedScp330EventArgs ev)
+        {
+            System.Random newRand = new System.Random();
+            if(newRand.Next(0,101) > 90)
+            {
+                CustomItem candy = CustomItem.Get(68);
+                candy.Give(ev.Player);
+            }
 
+        }
         public void OnPlayerSpawn(SpawnedEventArgs leftEventArgs)
         {
             Timing.CallDelayed(2f, () =>
