@@ -17,8 +17,13 @@ namespace KitchenSink.Abilities
 
         protected override void AbilityAdded(Player player)
         {
-            CustomKeycard newcard = (CustomKeycard)CustomItem.Get(67);
-            newcard.Give(player);
+            Timing.CallDelayed(0.5f, () =>
+            {
+
+                CustomKeycard newcard = (CustomKeycard)CustomItem.Get(67);
+                newcard.Give(player);
+            });
+
 
         }
 
