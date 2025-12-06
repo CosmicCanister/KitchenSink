@@ -104,6 +104,11 @@ namespace KitchenSink.Handlers
                 CustomItem candy = CustomItem.Get(68);
                 candy.Give(ev.Player);
             }
+            if (newRand.Next(0, 101) > 80)
+            {
+
+                ev.Player.GiveCandy(CandyKindID.Pink, InventorySystem.Items.ItemAddReason.PickedUp);
+            }
 
         }
         public void OnPlayerSpawn(SpawnedEventArgs leftEventArgs)
