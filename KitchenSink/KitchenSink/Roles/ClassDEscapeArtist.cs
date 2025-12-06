@@ -39,7 +39,7 @@ namespace KitchenSink.Roles
 		public override string CustomInfo { get; set; } = "Class-D Escape Artist";
 		public override List<string> Inventory { get; set; } = new List<string>()
 		{
-			$"{ItemType.KeycardO5}",
+			$"{ItemType.KeycardChaosInsurgency}",
 			$"{ItemType.ArmorLight}",
 			$"{ItemType.GrenadeHE}",
 			$"{ItemType.SCP500}",
@@ -60,7 +60,7 @@ namespace KitchenSink.Roles
 			 new RoomSpawnPoint()
 			 {
 
-				Room = RoomType.HczIncineratorWayside,
+				Room = RoomType.HczElevatorA,
 				Chance = 10,
 				Offset = new Vector3(0,2,0),
 			 },
