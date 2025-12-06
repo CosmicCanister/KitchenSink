@@ -463,9 +463,6 @@
     <Compile Include="Abilities\NuclearFailure.cs" />
     <Compile Include="Abilities\HPsteal.cs" />
     <Compile Include="Abilities\Decaying.cs" />
-    <Compile Include="Abilities\TestSubject.cs" />
-    <Compile Include="Abilities\Zombieinfect.cs" />
-    <Compile Include="Abilities\Scout.cs" />
     <Compile Include="Commands\StartZombieRound.cs" />
     <Compile Include="Items\DestabilizedCandy.cs" />
     <Compile Include="Items\SCP035MASK.cs" />

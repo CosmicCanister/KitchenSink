@@ -35,6 +35,9 @@ namespace KitchenSink.Roles
 		public override uint Id { get; set; } = 4;
 		public override int MaxHealth { get; set; } = 125;
 		public override string Name { get; set; } = "Gordon Freeman";
+
+		public override float SpawnChance { get; set; } = 10f;
+
 		public override string Description { get; set; } = "Oh my God... we're doomed!";
 		public override string CustomInfo { get; set; } = "Gordon Freeman";
 		public override List<string> Inventory { get; set; } = new List<string>()
