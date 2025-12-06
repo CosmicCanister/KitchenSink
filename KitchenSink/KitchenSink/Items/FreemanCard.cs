@@ -16,7 +16,7 @@ namespace KitchenSink.Items
 {
 
 	[CustomItem(ItemType.KeycardCustomMetalCase)]
-	public class FreemansCard: CustomKeycard
+	public class FreemansCard : CustomKeycard
 	{
 
 		public override uint Id { get; set; } = 67;
@@ -30,8 +30,8 @@ namespace KitchenSink.Items
 		public override KeycardPermissions Permissions { get; set; } = KeycardPermissions.ContainmentLevelTwo;
 
 
-        public override Color32? KeycardLabelColor { get; set; } = Color.cyan;
-        public override SpawnProperties SpawnProperties { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public override Color32? KeycardLabelColor { get; set; } = Color.cyan;
+		public override SpawnProperties SpawnProperties { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+	}
 
-
-}
+	}
