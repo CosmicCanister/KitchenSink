@@ -27,7 +27,7 @@ namespace KitchenSink.Items
 		public override string KeycardLabel { get; set; } = "Freeman's Card";
 		public override ItemType Type { get; set; } = ItemType.KeycardCustomMetalCase;
 
-		public override KeycardPermissions Permissions { get; set; } = KeycardPermissions.ContainmentLevelTwo;
+		public override KeycardPermissions Permissions { get; set; } = KeycardPermissions.ContainmentLevelTwo | KeycardPermissions.Checkpoints;
 
 
 		public override Color32? KeycardLabelColor { get; set; } = Color.cyan;
