@@ -12,11 +12,12 @@ using MEC;
 using UnityEngine;
 using Exiled.CustomRoles.API.Features.Interfaces;
 using CustomPlayerEffects;
-
 using Exiled.API.Features;
+
+using Exiled.CustomRoles;
+using Exiled.CustomRoles.API.Features;
 using KitchenSink.Abilities;
 
-using Exiled.CustomRoles.API.Features;
 using Exiled.Events.EventArgs.Server;
 using PlayerRoles;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace KitchenSink.Roles
 	{
 
 		public override RoleTypeId Role { get; set; } = RoleTypeId.ClassD;
-
+		public override float SpawnChance { get; set; } = 10f;
 		public override uint Id { get; set; } = 69;
 		public override int MaxHealth { get; set; } = 110;
 		public override string Name { get; set; } = "Class-D Escape Artist";
@@ -87,7 +88,46 @@ namespace KitchenSink.Roles
 
 
 
+		protected override void SubscribeEvents()
+		{
+            PlayerEvent.Spawned += OnUsingItem;
 
+			base.SubscribeEvents();
+		}
+
+
+		/// <inheritdoc/>
+		protected override void UnsubscribeEvents()
+		{
+
+            PlayerEvent.Spawned -= OnUsingItem;
+			base.UnsubscribeEvents();
+		}
+
+
+		private void OnUsingItem(SpawnedEventArgs ev)
+		{
+			bool hasRole = false;
+			CustomRole EscapeArtist = Roles.ClassDEscapeArtist.Get(Id);
+			foreach(Player p in EscapeArtist.TrackedPlayers)
+            {
+				if(ev.Player == p)
+                {
+					hasRole = true;
+                }
+            }
+			
+			if (hasRole == false) 
+				return;
+
+			Map.Broadcast(6, $"Highly dangerous d class subject on the loose, be on your guard", global::Broadcast.BroadcastFlags.Normal, true);
+
+
+
+
+
+
+		}
 
 
 

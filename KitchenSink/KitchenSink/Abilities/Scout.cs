@@ -1,4 +1,5 @@
-﻿using Exiled.API.Features;
+﻿
+using Exiled.API.Features;
 using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Items;
 using Exiled.CustomRoles.API.Features;
@@ -16,16 +17,25 @@ namespace KitchenSink.Abilities
 
         protected override void AbilityAdded(Player player)
         {
-            player.EnableEffect(EffectType.Scp207, -1f);
+            if (player.CurrentArmor.Type == ItemType.ArmorLight)
+            {
+                player.IsUsingStamina = false;
+
+            }
+            if (player.CurrentArmor.Type == ItemType.None)
+            {
+                player.IsUsingStamina = false;
+
+            }
         }
 
 
 
-        public override string Name { get; set; } = "Test Subject";
-        public override string Description { get; set; } = "Has a constant speed boost, but there are drawbacks";
+        public override string Name { get; set; } = "Scout's Speed";
+        public override string Description { get; set; } = "Gives you speed if you're wearing light or no armor";
         protected override void AbilityRemoved(Player player)
         {
-            player.DisableEffect(EffectType.Scp207);
+            player.IsUsingStamina = true;
         }
 
 

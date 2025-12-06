@@ -31,7 +31,7 @@ namespace KitchenSink.Roles
     {
 
         public override RoleTypeId Role { get; set; } = RoleTypeId.ClassD;
-
+        public override float SpawnChance { get; set; } = 25f;
         public override uint Id { get; set; } = 67;
         public override int MaxHealth { get; set; } = 200;
         public override string Name { get; set; } = "Class D Tank";

@@ -14,16 +14,17 @@ namespace KitchenSink.Items
 {
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
+    using Exiled.CustomRoles.API.Features;
+    using UnityEngine;
 
-
-    [CustomItem(ItemType.GunRevolver)]
-    public class LifeSpender : CustomItem
+    [CustomItem(ItemType.SCP1344)]
+    public class SCP035MASK : CustomItem
     {
 
 
-        public override uint Id { get; set; } = 12;
-        public override string Name { get; set; } = "Life Spender";
-        public override string Description { get; set; } = "Kill's you instantly when hitting an enemy, but does tons of damage";
+        public override uint Id { get; set; } = 66;
+        public override string Name { get; set; } = "Suspicious Mask";
+        public override string Description { get; set; } = "Become an SCP";
         public override float Weight { get; set; } = 1.5f;
         public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
         {
@@ -32,11 +33,19 @@ namespace KitchenSink.Items
            {
             new DynamicSpawnPoint()
             {
-                Chance = 25,
+                Chance = 15,
                 Location = SpawnLocationType.InsideHidLab,
             },
-
-
+            new DynamicSpawnPoint()
+            {
+                Chance = 15,
+                Location = SpawnLocationType.Inside049Armory,
+            },
+            new DynamicSpawnPoint()
+            {
+                Chance = 15,
+                Location = SpawnLocationType.InsideLczWc,
+            },
            },
         };
 
@@ -45,41 +54,33 @@ namespace KitchenSink.Items
 
         protected override void SubscribeEvents()
         {
-            Exiled.Events.Handlers.Player.Hurting += OnHitting;
-            Exiled.Events.Handlers.Player.Shooting -= OnUsingItem;
 
 
+            Exiled.Events.Handlers.Player.UsedItem += UsingItem;
             base.SubscribeEvents();
         }
 
         /// <inheritdoc/>
         protected override void UnsubscribeEvents()
         {
-            Exiled.Events.Handlers.Player.Hurting -= OnHitting;
-            Exiled.Events.Handlers.Player.Shooting -= OnUsingItem;
 
+            Exiled.Events.Handlers.Player.UsedItem -= UsingItem;
 
             base.UnsubscribeEvents();
         }
-
-        private void OnUsingItem(ShootingEventArgs ev)
+        private void UsingItem(UsedItemEventArgs ev)
         {
             if (!Check(ev.Player.CurrentItem))
                 return;
-            ev.Player.ClearItems();
+
+            Vector3 oldPos = ev.Player.Position;
+
+            ev.Item.Destroy();
+            CustomRole SCP035MASK = Roles.SCP0081.Get(71);
+            SCP035MASK.AddRole(ev.Player);
+            ev.Player.Position = oldPos;
 
 
-
-        }
-        private void OnHitting(HurtingEventArgs ev)
-        {
-
-            if (!Check(ev.Attacker.CurrentItem))
-                return;
-            ev.Attacker.ClearItems();
-            ev.Attacker.Vaporize();
-            ev.Attacker.Kill(DamageType.Explosion);
-            ev.Player.Hurt(1000f, DamageType.Unknown);
         }
     }
 }
