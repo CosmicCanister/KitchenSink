@@ -453,41 +453,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abilities\Charge.cs" />
-    <Compile Include="Abilities\Scout.cs" />
-    <Compile Include="Abilities\TestSubject.cs" />
-    <Compile Include="Abilities\FreeMan.cs" />
-    <Compile Include="Abilities\Zombieinfect.cs" />
-    <Compile Include="Items\FreemanCard.cs" />
-    <Compile Include="Abilities\Teleportation.cs" />
-    <Compile Include="Abilities\NuclearFailure.cs" />
-    <Compile Include="Abilities\HPsteal.cs" />
-    <Compile Include="Abilities\Decaying.cs" />
-    <Compile Include="Commands\StartZombieRound.cs" />
-    <Compile Include="Items\DestabilizedCandy.cs" />
-    <Compile Include="Items\SCP035MASK.cs" />
-    <Compile Include="Roles\SCP035.cs" />
-    <Compile Include="Items\MakePeopleExplodeNade.cs" />
-    <Compile Include="Items\StimNade.cs" />
-    <Compile Include="Items\Life Spender.cs" />
-    <Compile Include="Roles\ChaosInfiltrator.cs" />
-    <Compile Include="Roles\05.cs" />
-    <Compile Include="Roles\ClassDEscapeArtist.cs" />
-    <Compile Include="Roles\GordonFreeman.cs" />
-    <Compile Include="Roles\SCP0081.cs" />
-    <Compile Include="Roles\ScoutGuard.cs" />
     <Compile Include="SSS.cs" />
-    <Compile Include="Commands\AdminCom.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Handlers\Player.cs" />
-    <Compile Include="Handlers\Server.cs" />
-    <Compile Include="Items\SCP500_8.cs" />
-    <Compile Include="Items\NukeCard.cs" />
     <Compile Include="Items\EyeLander.cs" />
-    <Compile Include="Items\SuicideBomb.cs" />
     <Compile Include="KitchenSinkPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Roles\ClassDTank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

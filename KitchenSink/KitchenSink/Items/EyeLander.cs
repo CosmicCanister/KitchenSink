@@ -17,7 +17,7 @@ namespace KitchenSink.Items
     [CustomItem(ItemType.Jailbird)]
     public class EyeLander : CustomItem
     {
-        public override uint Id { get; set; } = 3;
+        public override uint Id { get; set; } = 2;
         public override string Name { get; set; } = "EyeLander";
         public override string Description { get; set; } = "Weapon that makes you stronger when you get more kills";
         public override float Weight { get; set; } = 0.5f;
@@ -26,9 +26,8 @@ namespace KitchenSink.Items
 
         
 
-            // Optionally sync with the client
         
-        public static int Kills { get; set; } = 1;
+        public int Kills { get; set; } = 1;
         public override SpawnProperties SpawnProperties { get; set; } =
         new SpawnProperties()
         {
@@ -56,6 +55,7 @@ namespace KitchenSink.Items
         {
             Exiled.Events.Handlers.Player.Hurting += OnUsingItem;
             Exiled.Events.Handlers.Player.Died += KillingOther;
+            Exiled.Events.Handlers.Player.Died += plrDied;
 
             Exiled.Events.Handlers.Player.PickingUpItem += PickingUpItem;
             Exiled.Events.Handlers.Player.DroppingItem += removeShield;
@@ -67,6 +67,7 @@ namespace KitchenSink.Items
         protected override void UnsubscribeEvents()
         {
             Exiled.Events.Handlers.Player.Died -= KillingOther;
+            Exiled.Events.Handlers.Player.Died -= plrDied;
 
             Exiled.Events.Handlers.Player.Hurting -= OnUsingItem;
             Exiled.Events.Handlers.Player.ChangedItem -= addShield;
@@ -129,7 +130,20 @@ namespace KitchenSink.Items
         }
 
 
+        private void plrDied(DiedEventArgs ev)
+        {
+            if (!Check(ev.Player))
+                return;
 
+
+
+            
+
+
+            Kills = 0;
+
+
+        }
 
 
 
@@ -149,6 +163,7 @@ namespace KitchenSink.Items
 
            // ev.Player.MaxHealth = 100;
             ev.Player.MaxHealth -= 50f + 25 * Kills;
+            Kills = 0;
         }
 
 

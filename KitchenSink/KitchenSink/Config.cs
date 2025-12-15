@@ -10,6 +10,7 @@ namespace KitchenSink
 {
     public class Config : IConfig
     {
+        [Description("This sets for if the plugin should be enabled or net")]
         public bool IsEnabled { get; set; } = true;
         public bool Debug { get; set; } = false;
 

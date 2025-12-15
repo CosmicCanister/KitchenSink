@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Exiled.API.Enums;
 using Server = Exiled.Events.Handlers.Server;
 using Player = Exiled.Events.Handlers.Player;
-using SuicideBomb = KitchenSink.Items.SuicideBomb;
 using s914 = Exiled.Events.Handlers.Scp914;
 using s049 = Exiled.Events.Handlers.Scp049;
 using MEC;
@@ -33,8 +32,7 @@ namespace KitchenSink
 
         public override PluginPriority Priority { get; } = PluginPriority.Medium;
 
-        private Handlers.Player player;
-        private Handlers.Server server;
+
         private KitchenSinkPlugin() { }
 
 
@@ -48,7 +46,6 @@ namespace KitchenSink
             CustomItem.RegisterItems();
             
             
-            RegisterEvents();
 
         }
 
@@ -60,80 +57,7 @@ namespace KitchenSink
             CustomRole.UnregisterRoles();
             CustomItem.UnregisterItems();
 
-            UnRegisterEvents();
         }
 
-        public void RegisterEvents()
-        {
-
-
-            player = new Handlers.Player();
-            server = new Handlers.Server();
-            Player.Left += player.OnPlayerLeave;
-            Player.Joined += player.OnPlayCon;
-            Player.Spawned += player.OnPlayerSpawn;
-            Server.RoundEnded += server.GameEnd;
-            Server.RoundStarted += server.GameStart;
-            Player.Died += player.RemoveTPAbility;
-            Server.RoundStarted += server.GameStartFire;
-            Player.Hurting += player.InjureSCP035SCPS;
-            LabApi.Events.Handlers.PlayerEvents.InteractedScp330 += player.Scp330TPCANDY;
-            Player.Hurting += player.InjureSCPSSCP035;
-
-            /*
-                        Player.Left += player.OnPlayerLeave;
-                        Player.Joined += player.OnPlayCon;
-
-                        Player.UsedItem += player.OnPlayerUse;
-                        if (KitchenSinkPlugin.Instance.Config.JoinLeave)
-                        {
-                            Log.Info("Join Leave is enabled!");
-                        }
-
-                        Server.RoundEnded += server.RoundFinish;
-                        Server.RoundStarted += server.RoundBegin;
-                        Server.RoundStarted += server.TestStart;
-
-
-                        s914.UpgradingPlayer += server.Upgrading914;
-                        s049.FinishingRecall += player.S0492Zombiedeath;
-            */
-        }
-
-        public void UnRegisterEvents()
-        {
-            player = new Handlers.Player();
-            server = new Handlers.Server();
-            Player.Left -= player.OnPlayerLeave;
-            Player.Joined -= player.OnPlayCon;
-            Player.Spawned -= player.OnPlayerSpawn;
-            Server.RoundStarted -= server.GameStartFire;
-            Player.Died -= player.RemoveTPAbility;
-
-            Player.Hurting -= player.InjureSCP035SCPS;
-            Player.Hurting -= player.InjureSCPSSCP035;
-            Server.RoundEnded -= server.GameEnd;
-            LabApi.Events.Handlers.PlayerEvents.InteractedScp330 -= player.Scp330TPCANDY;
-            Server.RoundStarted -= server.GameStart;
-            /*
-             *             Player.UsedItem -= player.OnPlayerUse;
-            Player.Left -= player.OnPlayerLeave;
-            Player.Joined -= player.OnPlayCon;
-
-            Server.RoundEnded -= server.RoundFinish;
-            Server.RoundStarted -= server.RoundBegin;
-            Server.RoundStarted -= server.TestStart;
-
-            s914.UpgradingPlayer -= server.Upgrading914;
-            s049.FinishingRecall -= player.S0492Zombiedeath;
-             * 
-             * 
-             * 
-             */
-
-
-            player = null;
-            server = null;
-        }
     }
 }
