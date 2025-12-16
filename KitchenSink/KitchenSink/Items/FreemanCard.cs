@@ -31,7 +31,20 @@ namespace KitchenSink.Items
 
 
 		public override Color32? KeycardLabelColor { get; set; } = Color.cyan;
-		public override SpawnProperties SpawnProperties { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
+		{
+			Limit = 0,
+			DynamicSpawnPoints = new List<DynamicSpawnPoint>
+		   {
+			new DynamicSpawnPoint()
+			{
+				Chance = 1,
+				Location = SpawnLocationType.InsideHidLab,
+			},
+
+
+		   },
+		};
 	}
 
 	}
