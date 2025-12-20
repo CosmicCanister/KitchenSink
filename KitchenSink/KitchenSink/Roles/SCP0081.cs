@@ -18,7 +18,6 @@ using KitchenSink.Abilities;
 
 using Exiled.CustomRoles.API.Features;
 using Exiled.Events.EventArgs.Server;
-using PlayerRoles;
 using System.ComponentModel;
 using PlayerEvent = Exiled.Events.Handlers.Player;
 

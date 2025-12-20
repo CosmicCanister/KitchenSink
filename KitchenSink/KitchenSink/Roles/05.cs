@@ -23,6 +23,9 @@ using System.ComponentModel;
 using PlayerEvent = Exiled.Events.Handlers.Player;
 
 
+using InventorySystem.Items.Usables.Scp330;
+using LabApi.Events.Arguments.PlayerEvents;
+
 namespace KitchenSink.Roles
 {
     [CustomRole(RoleTypeId.Scientist)]
@@ -111,7 +114,9 @@ namespace KitchenSink.Roles
 
             if (hasRole == true)
             {
-                Cassie.Message($"Highly Important Personnel on site, if they die the site is set to self destruct");
+                Map.Broadcast(6, $"Highly Important Personnel on site, if they die the site is set to self destruct");
+                
+              //  Cassie.CassieLine($"Highly Important Personnel on site, if they die the site is set to self destruct");
 
             }else
             return;
