@@ -109,10 +109,13 @@ namespace KitchenSink.Roles
                 }
             }
 
-            if (hasRole == false)
-                return;
+            if (hasRole == true)
+            {
+                Cassie.Message($"Highly Important Personnel on site, if they die the site is set to self destruct");
 
-            Cassie.Message($"Highly Important Personnel on site, if they die the site is set to self destruct");
+            }else
+            return;
+
 
 
 
