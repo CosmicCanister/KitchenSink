@@ -151,7 +151,8 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.Health = 1500;
+                        p.MaxHealth = 1500;
+                        p.Heal(1500);
 
                         p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
 
@@ -184,7 +185,9 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.Health = 1500;
+                        p.MaxHealth = 1500;
+                        p.Heal(1500);
+
                         break;
                     }
                 }
