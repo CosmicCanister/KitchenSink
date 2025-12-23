@@ -130,7 +130,7 @@ namespace KitchenSink.Handlers
 
                 System.Random newRand = new System.Random();
                 int max = Exiled.API.Features.Player.List.Count;
-                int chance = newRand.Next(0, max);
+                int chance = newRand.Next(0, max + 1);
                 int iterator = 0;
                 bool scpSpawned = false;
                 foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
@@ -155,7 +155,6 @@ namespace KitchenSink.Handlers
 
                         p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
 
-
                     }
                     else
                     {
@@ -165,7 +164,7 @@ namespace KitchenSink.Handlers
 
                     }
 
-                    chance++;
+                    iterator++;
 
                 }
                 if (scpSpawned == false)
@@ -203,7 +202,7 @@ namespace KitchenSink.Handlers
                 Map.CleanAllItems();
                 int lightsOut = newRand.Next(0, 2);
                 int max = Exiled.API.Features.Player.List.Count;
-                int chance = newRand.Next(0, max);
+                int chance = newRand.Next(0, max + 1);
                 bool scpSpawned = false;
                 int iterator = 0;
                 foreach (Door p in Door.List)
@@ -228,7 +227,9 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.Health = 1000;
+                        p.MaxHealth = 1000;
+                        p.Heal(1000);
+
                         p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
                     }
                     else
@@ -246,7 +247,7 @@ namespace KitchenSink.Handlers
 
                     }
 
-                    chance++;
+                    iterator++;
 
                 }
                 if (scpSpawned == false)
@@ -264,7 +265,9 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.Health = 1000;
+                        p.MaxHealth = 1000;
+                        p.Heal(1000);
+
                         p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
                         break;
                     }
