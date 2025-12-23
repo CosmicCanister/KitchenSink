@@ -2,7 +2,6 @@
 using Exiled.API.Features;
 using Exiled.API.Features.Doors;
 using Exiled.Events.EventArgs.Server;
-using MEC;
 using PlayerRoles;
 using System;
 using System.Collections.Generic;
@@ -142,12 +141,7 @@ namespace KitchenSink.Handlers
 
                     if (iterator == chance && scpSpawned == false)
                     {
-
                         scpSpawned = true;
-
-
-                        Timing.CallDelayed(2f, () =>
-                        {
                         p.Role.Set(RoleTypeId.ChaosRepressor);
                         
                         p.ClearInventory();
@@ -163,20 +157,14 @@ namespace KitchenSink.Handlers
                         p.AddAmmo(AmmoType.Nato762, 600);
                         p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
                         p.Health = 1500;
-                        });
-
 
 
                     }
                     else
                     {
-                        Timing.CallDelayed(2f, () =>
-                        {
                         p.Role.Set(RoleTypeId.NtfPrivate);
                         p.Teleport(RoomType.EzCollapsedTunnel);
                         p.Broadcast(6, $"fight the juggernaught", Broadcast.BroadcastFlags.Normal, true);
-                        });
-
 
                     }
 
@@ -187,8 +175,7 @@ namespace KitchenSink.Handlers
                 {
                     foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
                     {
-                        Timing.CallDelayed(2f, () =>
-                        {
+
                         p.Role.Set(RoleTypeId.ChaosRepressor);
                         p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
@@ -202,8 +189,6 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
                         p.Health = 1500;
-                        });
-
                         break;
                     }
                 }
@@ -238,9 +223,6 @@ namespace KitchenSink.Handlers
                     if (iterator == chance && scpSpawned == false)
                     {
                         scpSpawned = true;
-
-                        Timing.CallDelayed(2f, () =>
-                        {
                         p.Role.Set(RoleTypeId.FacilityGuard);
                         p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
@@ -256,15 +238,10 @@ namespace KitchenSink.Handlers
                         p.AddAmmo(AmmoType.Nato9, 600);
 
                         p.Health = 1000;
-                        });
-
                         p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
                     }
                     else
                     {
-
-                        Timing.CallDelayed(2f, () =>
-                        {
                         p.Role.Set(RoleTypeId.ClassD);
                         p.ClearInventory();
 
@@ -278,8 +255,6 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.Medkit);
 
                         p.Broadcast(6, $"escape the facility, run from seeker", Broadcast.BroadcastFlags.Normal, true);
-                        });
-
 
                     }
 
@@ -290,8 +265,6 @@ namespace KitchenSink.Handlers
                 {
                     foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
                     {
-                        Timing.CallDelayed(2f, () =>
-                        {
                         p.Role.Set(RoleTypeId.FacilityGuard);
                         p.AddItem(ItemType.ArmorHeavy);
                         p.AddItem(ItemType.GunLogicer);
@@ -305,8 +278,6 @@ namespace KitchenSink.Handlers
                         p.AddAmmo(AmmoType.Nato762, 600);
                         p.Health = 1000;
                         p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
-                        });
-
                         break;
                     }
                 }
