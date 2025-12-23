@@ -159,12 +159,12 @@ namespace KitchenSink.Handlers
                     else
                     {
                         p.Role.Set(RoleTypeId.NtfPrivate);
-                        p.Teleport(RoomType.EzCollapsedTunnel);
+                        p.Teleport(RoomType.EzIntercom);
                         p.Broadcast(6, $"fight the juggernaught", Broadcast.BroadcastFlags.Normal, true);
+                        iterator++;
 
                     }
 
-                    iterator++;
 
                 }
                 if (scpSpawned == false)
@@ -242,12 +242,12 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.SCP244a);
                         p.AddItem(ItemType.Medkit);
                         p.AddItem(ItemType.Medkit);
+                        iterator++;
 
                         p.Broadcast(6, $"escape the facility, run from seeker", Broadcast.BroadcastFlags.Normal, true);
 
                     }
 
-                    iterator++;
 
                 }
                 if (scpSpawned == false)
