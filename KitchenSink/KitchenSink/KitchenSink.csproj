@@ -37,10 +37,15 @@
       <HintPath>Includes\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>Includes\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-Publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\BouncyCastle.Cryptography.dll</HintPath>
@@ -49,37 +54,37 @@
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\Caress.dll</HintPath>
     </Reference>
     <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\CommandSystem.Core.dll</HintPath>
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\CommandSystem.Core.dll</HintPath>
     </Reference>
     <Reference Include="DnsClient, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\DnsClient.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.API, Version=9.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\Exiled.API.dll</HintPath>
+    <Reference Include="Exiled.API, Version=9.12.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Exiled.API.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CreditTags, Version=9.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\Exiled.CreditTags.dll</HintPath>
+    <Reference Include="Exiled.CreditTags, Version=9.12.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Exiled.CreditTags.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CustomItems, Version=9.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\Exiled.CustomItems.dll</HintPath>
+    <Reference Include="Exiled.CustomItems, Version=9.12.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Exiled.CustomItems.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CustomRoles, Version=9.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\Exiled.CustomRoles.dll</HintPath>
+    <Reference Include="Exiled.CustomRoles, Version=9.12.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Exiled.CustomRoles.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Events, Version=9.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\Exiled.Events.dll</HintPath>
+    <Reference Include="Exiled.Events, Version=9.12.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Exiled.Events.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Loader, Version=9.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\Exiled.Loader.dll</HintPath>
+    <Reference Include="Exiled.Loader, Version=9.12.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Exiled.Loader.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Permissions, Version=9.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\Exiled.Permissions.dll</HintPath>
+    <Reference Include="Exiled.Permissions, Version=9.12.1.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\Exiled.Permissions.dll</HintPath>
     </Reference>
     <Reference Include="Facepunch.Steamworks.Win64, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\Facepunch.Steamworks.Win64.dll</HintPath>
     </Reference>
     <Reference Include="LabApi, Version=1.1.4.2, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.12.0\lib\net48\LabApi.dll</HintPath>
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\LabApi.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mirror, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -109,8 +114,8 @@
     <Reference Include="netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\netstandard.dll</HintPath>
     </Reference>
-    <Reference Include="NorthwoodLib, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\NorthwoodLib.dll</HintPath>
+    <Reference Include="NorthwoodLib, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\NorthwoodLib.dll</HintPath>
     </Reference>
     <Reference Include="PluginAPI, Version=13.1.5.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\PluginAPI.dll</HintPath>
@@ -446,7 +451,7 @@
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\YamlDotNet.dll</HintPath>
+      <HintPath>..\packages\ExMod.Exiled.9.12.1\lib\net48\YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\Exiled.Dev.References.1.0.4\lib\net48\zxing.dll</HintPath>
@@ -458,6 +463,9 @@
     <Compile Include="Abilities\TestSubject.cs" />
     <Compile Include="Abilities\FreeMan.cs" />
     <Compile Include="Abilities\Zombieinfect.cs" />
+    <Compile Include="Commands\StartTDMRound.cs" />
+    <Compile Include="Commands\StartJuggerNaughtRound.cs" />
+    <Compile Include="Commands\StartHideRound.cs" />
     <Compile Include="Items\FreemanCard.cs" />
     <Compile Include="Abilities\Teleportation.cs" />
     <Compile Include="Abilities\NuclearFailure.cs" />
