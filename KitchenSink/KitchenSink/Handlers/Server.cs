@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using Exiled.API.Features.Doors;
 using Exiled.Events.EventArgs.Server;
+using MEC;
 using PlayerRoles;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,9 @@ namespace KitchenSink.Handlers
         public void GameStart()
         {
             ZombieRound = false;
+            HideRound = false;
+            JuggerNaughtRound = false;
+            TeamFightRound = false;
 
             Random rand = new Random();
 
@@ -138,8 +142,14 @@ namespace KitchenSink.Handlers
 
                     if (iterator == chance && scpSpawned == false)
                     {
+
                         scpSpawned = true;
+
+
+                        Timing.CallDelayed(2f, () =>
+                        {
                         p.Role.Set(RoleTypeId.ChaosRepressor);
+                        
                         p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
                         p.AddItem(ItemType.GunLogicer);
@@ -151,15 +161,22 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.Health = 1500;
                         p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
+                        p.Health = 1500;
+                        });
+
+
 
                     }
                     else
                     {
+                        Timing.CallDelayed(2f, () =>
+                        {
                         p.Role.Set(RoleTypeId.NtfPrivate);
                         p.Teleport(RoomType.EzCollapsedTunnel);
                         p.Broadcast(6, $"fight the juggernaught", Broadcast.BroadcastFlags.Normal, true);
+                        });
+
 
                     }
 
@@ -170,7 +187,8 @@ namespace KitchenSink.Handlers
                 {
                     foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
                     {
-
+                        Timing.CallDelayed(2f, () =>
+                        {
                         p.Role.Set(RoleTypeId.ChaosRepressor);
                         p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
@@ -184,6 +202,8 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
                         p.Health = 1500;
+                        });
+
                         break;
                     }
                 }
@@ -199,7 +219,7 @@ namespace KitchenSink.Handlers
 
                 System.Random newRand = new System.Random();
                 Map.CleanAllItems();
-                int lightsOut = newRand.Next(0, 2);
+                int lightsOut = newRand.Next(0, 3);
                 int max = Exiled.API.Features.Player.List.Count;
                 int chance = newRand.Next(0, max);
                 bool scpSpawned = false;
@@ -208,39 +228,58 @@ namespace KitchenSink.Handlers
                 {
                     p.IsOpen = true;
                 }
-
+                if(lightsOut == 1)
+                {
+                    Map.TurnOffAllLights(1000000f);
+                }
                 foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
                 {
 
                     if (iterator == chance && scpSpawned == false)
                     {
                         scpSpawned = true;
+
+                        Timing.CallDelayed(2f, () =>
+                        {
                         p.Role.Set(RoleTypeId.FacilityGuard);
+                        p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
                         p.AddItem(ItemType.GunLogicer);
                         p.AddItem(ItemType.SCP500);
-                        p.AddItem(ItemType.SCP500);
+                        p.AddItem(ItemType.GunCrossvec);
                         p.EnableEffect(EffectType.Scp1344);
-                        p.AddItem(ItemType.SCP500);
+                        p.AddItem(ItemType.Flashlight);
                         p.Teleport(RoomType.HczArmory);
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
+                        p.AddAmmo(AmmoType.Nato9, 600);
+
                         p.Health = 1000;
+                        });
+
                         p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
                     }
                     else
                     {
+
+                        Timing.CallDelayed(2f, () =>
+                        {
                         p.Role.Set(RoleTypeId.ClassD);
+                        p.ClearInventory();
+
                         p.Teleport(RoomType.LczClassDSpawn);
                         p.AddItem(ItemType.GrenadeFlash);
                         p.AddItem(ItemType.GrenadeFlash);
-                        p.AddItem(ItemType.GrenadeFlash);
+                        p.AddItem(ItemType.Flashlight);
+
                         p.AddItem(ItemType.SCP244a);
                         p.AddItem(ItemType.Medkit);
                         p.AddItem(ItemType.Medkit);
 
                         p.Broadcast(6, $"escape the facility, run from seeker", Broadcast.BroadcastFlags.Normal, true);
+                        });
+
 
                     }
 
@@ -251,6 +290,8 @@ namespace KitchenSink.Handlers
                 {
                     foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
                     {
+                        Timing.CallDelayed(2f, () =>
+                        {
                         p.Role.Set(RoleTypeId.FacilityGuard);
                         p.AddItem(ItemType.ArmorHeavy);
                         p.AddItem(ItemType.GunLogicer);
@@ -264,6 +305,8 @@ namespace KitchenSink.Handlers
                         p.AddAmmo(AmmoType.Nato762, 600);
                         p.Health = 1000;
                         p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
+                        });
+
                         break;
                     }
                 }
