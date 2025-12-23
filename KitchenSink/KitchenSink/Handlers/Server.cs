@@ -53,9 +53,6 @@ namespace KitchenSink.Handlers
         public void GameStart()
         {
             ZombieRound = false;
-            HideRound = false;
-            JuggerNaughtRound = false;
-            TeamFightRound = false;
 
             Random rand = new Random();
 
@@ -143,7 +140,6 @@ namespace KitchenSink.Handlers
                     {
                         scpSpawned = true;
                         p.Role.Set(RoleTypeId.ChaosRepressor);
-                        
                         p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
                         p.AddItem(ItemType.GunLogicer);
@@ -155,8 +151,9 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
                         p.Health = 1500;
+
+                        p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
 
 
                     }
@@ -204,7 +201,7 @@ namespace KitchenSink.Handlers
 
                 System.Random newRand = new System.Random();
                 Map.CleanAllItems();
-                int lightsOut = newRand.Next(0, 3);
+                int lightsOut = newRand.Next(0, 2);
                 int max = Exiled.API.Features.Player.List.Count;
                 int chance = newRand.Next(0, max);
                 bool scpSpawned = false;
@@ -213,10 +210,7 @@ namespace KitchenSink.Handlers
                 {
                     p.IsOpen = true;
                 }
-                if(lightsOut == 1)
-                {
-                    Map.TurnOffAllLights(1000000f);
-                }
+
                 foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
                 {
 
@@ -224,32 +218,26 @@ namespace KitchenSink.Handlers
                     {
                         scpSpawned = true;
                         p.Role.Set(RoleTypeId.FacilityGuard);
-                        p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
                         p.AddItem(ItemType.GunLogicer);
                         p.AddItem(ItemType.SCP500);
-                        p.AddItem(ItemType.GunCrossvec);
+                        p.AddItem(ItemType.SCP500);
                         p.EnableEffect(EffectType.Scp1344);
-                        p.AddItem(ItemType.Flashlight);
+                        p.AddItem(ItemType.SCP500);
                         p.Teleport(RoomType.HczArmory);
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.AddAmmo(AmmoType.Nato9, 600);
-
                         p.Health = 1000;
                         p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
                     }
                     else
                     {
                         p.Role.Set(RoleTypeId.ClassD);
-                        p.ClearInventory();
-
                         p.Teleport(RoomType.LczClassDSpawn);
                         p.AddItem(ItemType.GrenadeFlash);
                         p.AddItem(ItemType.GrenadeFlash);
-                        p.AddItem(ItemType.Flashlight);
-
+                        p.AddItem(ItemType.GrenadeFlash);
                         p.AddItem(ItemType.SCP244a);
                         p.AddItem(ItemType.Medkit);
                         p.AddItem(ItemType.Medkit);
