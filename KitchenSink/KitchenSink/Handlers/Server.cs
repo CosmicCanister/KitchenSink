@@ -1,5 +1,8 @@
-﻿using Exiled.API.Features;
+﻿using Exiled.API.Enums;
+using Exiled.API.Features;
+using Exiled.API.Features.Doors;
 using Exiled.Events.EventArgs.Server;
+using PlayerRoles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,6 +94,181 @@ namespace KitchenSink.Handlers
 
 
             }
+
+
+
+            //TFA Round Code
+
+            if (Server.TeamFightRound)
+            {
+                int iterator = 1;
+                foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
+                {
+                    Map.Broadcast(6, $"TDM, Last team standing wins", Broadcast.BroadcastFlags.Normal, true);
+
+                    if (iterator % 2 == 0)
+                    {
+                        p.Role.Set(RoleTypeId.ClassD);
+                        p.Teleport(RoomType.LczToilets);
+                        p.ClearInventory();
+                    }
+                    else
+                    {
+                        p.Role.Set(RoleTypeId.Scientist);
+                        p.Teleport(RoomType.LczCafe);
+                        p.ClearInventory();
+                    }
+
+                    iterator++;
+                }
+            }
+
+            //Juggernaught round
+
+            if (Server.JuggerNaughtRound)
+            {
+
+                System.Random newRand = new System.Random();
+                int max = Exiled.API.Features.Player.List.Count;
+                int chance = newRand.Next(0, max);
+                int iterator = 0;
+                bool scpSpawned = false;
+                foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
+                {
+
+                    if (iterator == chance && scpSpawned == false)
+                    {
+                        scpSpawned = true;
+                        p.Role.Set(RoleTypeId.ChaosRepressor);
+                        p.ClearInventory();
+                        p.AddItem(ItemType.ArmorHeavy);
+                        p.AddItem(ItemType.GunLogicer);
+                        p.AddItem(ItemType.SCP500);
+                        p.AddItem(ItemType.SCP500);
+
+                        p.AddItem(ItemType.SCP500);
+                        p.Teleport(RoomType.EzCafeteria);
+                        p.AddItem(ItemType.AntiSCP207);
+                        p.AddItem(ItemType.GunSCP127);
+                        p.AddAmmo(AmmoType.Nato762, 600);
+                        p.Health = 1500;
+                        p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
+
+                    }
+                    else
+                    {
+                        p.Role.Set(RoleTypeId.NtfPrivate);
+                        p.Teleport(RoomType.EzCollapsedTunnel);
+                        p.Broadcast(6, $"fight the juggernaught", Broadcast.BroadcastFlags.Normal, true);
+
+                    }
+
+                    chance++;
+
+                }
+                if (scpSpawned == false)
+                {
+                    foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
+                    {
+
+                        p.Role.Set(RoleTypeId.ChaosRepressor);
+                        p.ClearInventory();
+                        p.AddItem(ItemType.ArmorHeavy);
+                        p.AddItem(ItemType.GunLogicer);
+                        p.AddItem(ItemType.SCP500);
+                        p.AddItem(ItemType.SCP500);
+
+                        p.AddItem(ItemType.SCP500);
+                        p.Teleport(RoomType.EzCafeteria);
+                        p.AddItem(ItemType.AntiSCP207);
+                        p.AddItem(ItemType.GunSCP127);
+                        p.AddAmmo(AmmoType.Nato762, 600);
+                        p.Health = 1500;
+                        break;
+                    }
+                }
+
+
+
+
+            }
+
+            if (Server.HideRound)
+            {
+
+
+                System.Random newRand = new System.Random();
+                Map.CleanAllItems();
+                int lightsOut = newRand.Next(0, 2);
+                int max = Exiled.API.Features.Player.List.Count;
+                int chance = newRand.Next(0, max);
+                bool scpSpawned = false;
+                int iterator = 0;
+                foreach (Door p in Door.List)
+                {
+                    p.IsOpen = true;
+                }
+
+                foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
+                {
+
+                    if (iterator == chance && scpSpawned == false)
+                    {
+                        scpSpawned = true;
+                        p.Role.Set(RoleTypeId.FacilityGuard);
+                        p.AddItem(ItemType.ArmorHeavy);
+                        p.AddItem(ItemType.GunLogicer);
+                        p.AddItem(ItemType.SCP500);
+                        p.AddItem(ItemType.SCP500);
+                        p.EnableEffect(EffectType.Scp1344);
+                        p.AddItem(ItemType.SCP500);
+                        p.Teleport(RoomType.HczArmory);
+                        p.AddItem(ItemType.AntiSCP207);
+                        p.AddItem(ItemType.GunSCP127);
+                        p.AddAmmo(AmmoType.Nato762, 600);
+                        p.Health = 1000;
+                        p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
+                    }
+                    else
+                    {
+                        p.Role.Set(RoleTypeId.ClassD);
+                        p.Teleport(RoomType.LczClassDSpawn);
+                        p.AddItem(ItemType.GrenadeFlash);
+                        p.AddItem(ItemType.GrenadeFlash);
+                        p.AddItem(ItemType.GrenadeFlash);
+                        p.AddItem(ItemType.SCP244a);
+                        p.AddItem(ItemType.Medkit);
+                        p.AddItem(ItemType.Medkit);
+
+                        p.Broadcast(6, $"escape the facility, run from seeker", Broadcast.BroadcastFlags.Normal, true);
+
+                    }
+
+                    chance++;
+
+                }
+                if (scpSpawned == false)
+                {
+                    foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
+                    {
+                        p.Role.Set(RoleTypeId.FacilityGuard);
+                        p.AddItem(ItemType.ArmorHeavy);
+                        p.AddItem(ItemType.GunLogicer);
+                        p.AddItem(ItemType.SCP500);
+                        p.AddItem(ItemType.SCP500);
+                        p.EnableEffect(EffectType.Scp1344);
+                        p.AddItem(ItemType.SCP500);
+                        p.Teleport(RoomType.HczArmory);
+                        p.AddItem(ItemType.AntiSCP207);
+                        p.AddItem(ItemType.GunSCP127);
+                        p.AddAmmo(AmmoType.Nato762, 600);
+                        p.Health = 1000;
+                        p.Broadcast(6, $"kill everyone, hiders are in light", Broadcast.BroadcastFlags.Normal, true);
+                        break;
+                    }
+                }
+            }
+
         }
     }
 }
