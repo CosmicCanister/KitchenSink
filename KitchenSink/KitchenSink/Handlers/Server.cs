@@ -1,6 +1,8 @@
 ﻿using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.API.Features.Doors;
+using Exiled.CustomItems.API.Features;
+using Exiled.CustomRoles.API.Features;
 using Exiled.Events.EventArgs.Server;
 using PlayerRoles;
 using System;
@@ -111,12 +113,20 @@ namespace KitchenSink.Handlers
                         p.Role.Set(RoleTypeId.ClassD);
                         p.Teleport(RoomType.LczToilets);
                         p.ClearInventory();
+                        p.AddItem(ItemType.KeycardMTFOperative);
+                        p.AddItem(ItemType.ArmorLight);
+                        p.AddAmmo(AmmoType.Nato9, 99);
+                        p.AddItem(ItemType.GunCOM15);
                     }
                     else
                     {
                         p.Role.Set(RoleTypeId.Scientist);
-                        p.Teleport(RoomType.LczCafe);
+                        p.Teleport(RoomType.EzGateB);
                         p.ClearInventory();
+                        p.AddItem(ItemType.KeycardMTFOperative);
+                        p.AddItem(ItemType.ArmorLight);
+                        p.AddAmmo(AmmoType.Nato9, 99);
+                        p.AddItem(ItemType.GunCOM15);
                     }
 
                     iterator++;
@@ -139,7 +149,8 @@ namespace KitchenSink.Handlers
                     if (iterator == chance && scpSpawned == false)
                     {
                         scpSpawned = true;
-                        p.Role.Set(RoleTypeId.ChaosRepressor);
+                        CustomRole JuggerNaught = CustomRole.Get(72);
+                        JuggerNaught.AddRole(p);
                         p.ClearInventory();
                         p.AddItem(ItemType.ArmorHeavy);
                         p.AddItem(ItemType.GunLogicer);
@@ -151,8 +162,7 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
                         p.AddAmmo(AmmoType.Nato762, 600);
-                        p.MaxHealth = 1500;
-                        p.Heal(1500);
+
 
                         p.Broadcast(6, $"You are the juggernaught", Broadcast.BroadcastFlags.Normal, true);
 
@@ -208,10 +218,17 @@ namespace KitchenSink.Handlers
                 int chance = newRand.Next(0, max + 1);
                 bool scpSpawned = false;
                 int iterator = 0;
+                int seekers = 1;
+                
                 foreach (Door p in Door.List)
                 {
                     p.IsOpen = true;
                 }
+                if(Exiled.API.Features.Player.List.Count > 8)
+                {
+                    seekers = 2;
+                }
+
 
                 foreach (Exiled.API.Features.Player p in Exiled.API.Features.Player.List)
                 {
@@ -221,7 +238,6 @@ namespace KitchenSink.Handlers
                         scpSpawned = true;
                         p.Role.Set(RoleTypeId.FacilityGuard);
                         p.AddItem(ItemType.ArmorHeavy);
-                        p.AddItem(ItemType.GunLogicer);
                         p.AddItem(ItemType.SCP500);
                         p.AddItem(ItemType.SCP500);
                         p.EnableEffect(EffectType.Scp1344);
@@ -229,6 +245,8 @@ namespace KitchenSink.Handlers
                         p.Teleport(RoomType.HczArmory);
                         p.AddItem(ItemType.AntiSCP207);
                         p.AddItem(ItemType.GunSCP127);
+                        CustomItem Infect = CustomItem.Get(69);
+                        Infect.Give(p);
                         p.AddAmmo(AmmoType.Nato762, 600);
                         p.MaxHealth = 1000;
                         p.Heal(1000);
@@ -244,6 +262,7 @@ namespace KitchenSink.Handlers
                         p.AddItem(ItemType.GrenadeFlash);
                         p.AddItem(ItemType.SCP244a);
                         p.AddItem(ItemType.Medkit);
+                        p.AddItem(ItemType.KeycardGuard);
                         p.AddItem(ItemType.Medkit);
                         iterator++;
 
@@ -275,6 +294,8 @@ namespace KitchenSink.Handlers
                         break;
                     }
                 }
+
+
             }
 
         }

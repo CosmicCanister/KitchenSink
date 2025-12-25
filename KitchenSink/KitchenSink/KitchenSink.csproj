@@ -466,6 +466,8 @@
     <Compile Include="Commands\StartTDMRound.cs" />
     <Compile Include="Commands\StartJuggerNaughtRound.cs" />
     <Compile Include="Commands\StartHideRound.cs" />
+    <Compile Include="Items\Sniper.cs" />
+    <Compile Include="Items\Infector.cs" />
     <Compile Include="Items\FreemanCard.cs" />
     <Compile Include="Abilities\Teleportation.cs" />
     <Compile Include="Abilities\NuclearFailure.cs" />
@@ -474,6 +476,7 @@
     <Compile Include="Commands\StartZombieRound.cs" />
     <Compile Include="Items\DestabilizedCandy.cs" />
     <Compile Include="Items\SCP035MASK.cs" />
+    <Compile Include="Roles\JuggerNaught.cs" />
     <Compile Include="Roles\SCP035.cs" />
     <Compile Include="Items\MakePeopleExplodeNade.cs" />
     <Compile Include="Items\StimNade.cs" />
