@@ -19,7 +19,8 @@ namespace KitchenSink.Items
     [CustomItem(ItemType.GunE11SR)]
     public class Sniper : CustomWeapon
     {
-        
+
+        public override float Damage { get; set; } = 1200;
 
         public override uint Id { get; set; } = 69;
         public override string Name { get; set; } = "Sniper";
