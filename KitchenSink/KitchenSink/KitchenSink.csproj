@@ -466,6 +466,7 @@
     <Compile Include="Commands\StartTDMRound.cs" />
     <Compile Include="Commands\StartJuggerNaughtRound.cs" />
     <Compile Include="Commands\StartHideRound.cs" />
+    <Compile Include="Items\AutoShotgun.cs" />
     <Compile Include="Items\Sniper.cs" />
     <Compile Include="Items\Infector.cs" />
     <Compile Include="Items\FreemanCard.cs" />
