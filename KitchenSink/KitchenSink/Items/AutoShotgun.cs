@@ -77,13 +77,13 @@ namespace KitchenSink.Items
            {
             new DynamicSpawnPoint()
             {
-                Chance = 40,
+                Chance = 10,
                 Location = SpawnLocationType.InsideIntercom,
             },
 
             new DynamicSpawnPoint()
             {
-                Chance = 40,
+                Chance = 10,
                 Location = SpawnLocationType.InsideLczArmory,
             },
             new DynamicSpawnPoint()
@@ -93,7 +93,7 @@ namespace KitchenSink.Items
             },
             new DynamicSpawnPoint()
             {
-                Chance = 40,
+                Chance = 10,
                 Location = SpawnLocationType.Inside127Lab,
             },
            },
